@@ -3,6 +3,10 @@ import React from "react";
 //Images
 import logo from "../images/Logo.png";
 
+//Icons
+import { FaBullhorn } from "react-icons/fa";
+import {IoIosBookmarks} from "react-icons/io";
+
 const Footer = () => {
   return (
     <section className="w-full h-[450px] bg-[#252525] flex justify-between">
@@ -25,15 +29,23 @@ const Footer = () => {
         <article>
           <h1 className="text-3xl text-white my-3">Contact Us</h1>
           <div className="flex gap-5">
-            <div className="bg-[#363636] rounded-xl p-3 w-full">
-              <p className="text-[#727272]">Reservations</p>
-              <p>+251221113400</p>
-              <p>+251937868196</p>
+            <div className="bg-[#363636] rounded-xl p-3 w-full flex justify-between">
+              <div>
+                <p className="text-[#727272]">Reservations</p>
+                <p>+251221113400</p>
+                <p>+251937868196</p>
+              </div>
+
+              <IoIosBookmarks size={60} className="mr-6 mt-1" color="#252525" />
             </div>
 
-            <div className="bg-[#363636] rounded-xl p-3 w-full">
-              <p className="text-[#727272]">Marketing Office</p>
-              <p>+251930107514</p>
+            <div className="bg-[#363636] rounded-xl p-3 w-full flex justify-between">
+              <div>
+                <p className="text-[#727272]">Marketing Office</p>
+                <p>+251930107514</p>
+              </div>
+
+              <FaBullhorn size={60} className="mr-6" color="#252525" />
             </div>
           </div>
         </article>

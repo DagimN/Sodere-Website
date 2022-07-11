@@ -4,7 +4,10 @@ import React from 'react';
 import logo from "../images/Logo.png";
 
 //Components
-import RegionInfo from './RegionInfo';
+import RegionInfo from './RegionInfo.component';
+
+//Icons
+import {AiFillHome} from 'react-icons/ai';
 
 const Navbar = () => {
   return (
@@ -14,9 +17,10 @@ const Navbar = () => {
       </a>
 
       <div className="relative top-[30px] flex">
-        <div className='relative top-[20px]'>
-          <a href="/" className="mx-5">
-            Home
+        <div className="relative bottom-5">
+          <a href="/" className="mx-10">
+            <AiFillHome color="#52BBCE" size={25} className="relative top-6" />
+            <div className="bg-[#52BBCE] h-[5px] w-7 relative bottom-3 right-[1px]"></div>
           </a>
           <a href="/" className="mx-5">
             Rooms

@@ -9,10 +9,9 @@ const Rooms = () => {
     
     useEffect(() => {
         //TODO: Fix the bug
-        console.log(`Before: ${roomIndex}`)
+        
       setTimeout(() => {
         if(!isIndexClicked){
-            console.log(`After: ${(roomIndex + 1) % rooms.length}`);
             setRoomIndex((roomIndex + 1) % rooms.length);
         }
         else

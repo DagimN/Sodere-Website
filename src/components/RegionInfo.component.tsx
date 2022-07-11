@@ -1,6 +1,12 @@
 import React from 'react';
 
+//Hooks
+import useWeather from '../hooks/useWeather';
+
 const RegionInfo = () => {
+  const weatherData = useWeather();
+  console.log(weatherData);
+  
   return (
     <div className="grid relative bottom-8">
       <div className='flex justify-center'>
