@@ -4,7 +4,7 @@ import React, { useEffect, useState } from "react";
 import image1 from "../images/2.jpg";
 import image2 from "../images/3.jpg";
 import image3 from "../images/8.jpg";
-
+//TODO: Implement the fade transition 
 const ContentSlider = () => {
   let contentImages = [image1, image2, image3];
   let [contentIndex, setContentIndex] = useState(0);

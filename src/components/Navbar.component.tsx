@@ -16,7 +16,7 @@ const Navbar = () => {
         <img src={logo} alt="logo" className="h-[75px] ml-4 mt-4 mb-2" />
       </a>
 
-      <div className="relative top-[30px] flex">
+      <div className="relative top-[30px] flex right">
         <div className="relative bottom-5">
           <a href="/" className="mx-10">
             <AiFillHome color="#52BBCE" size={25} className="relative top-6" />

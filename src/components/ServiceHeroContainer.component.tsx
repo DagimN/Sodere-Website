@@ -5,6 +5,7 @@ type ServiceType = {
   description: string
 };
 
+//TODO: Fix the animation bug on the opacity
 const ServiceHeroContainer = ({service, image, isLeft}:{service:ServiceType, image:string, isLeft:boolean}) => {
     let containerAttribute = 
       "bg-black grid h-[400px] justify-items-center group transition-all duration-[1000ms]";
@@ -30,25 +31,25 @@ const ServiceHeroContainer = ({service, image, isLeft}:{service:ServiceType, ima
       </div >
     );
   return (
-    <button className={containerAttribute}>
-      <div className="group-focus:invisible visible">
-        <img
-          src={image}
-          alt=""
-          className="h-[400px] w-full relative z-0 opacity-60"
-        />
-        <h1 className="z-10 relative bottom-[250px] text-2xl text-white transition-all duration-300 ease-in group-hover:text-4xl">
-          Service Name
-        </h1>
-        <p className="z-10 relative bottom-[230px] text-md text-white transition-all duration-300 ease-in group-hover:text-2xl">
-          Service Description
-        </p>
-      </div>
+    <>
+      <button className={containerAttribute}>
+        <div className="group-focus:invisible visible">
+          <img
+            src={image}
+            alt=""
+            className="h-[400px] w-full relative z-0 opacity-60"
+          />
+          <h1 className="z-10 relative bottom-[250px] text-2xl text-white transition-all duration-300 ease-in group-hover:text-4xl">
+            Service Name
+          </h1>
+          <p className="z-10 relative bottom-[230px] text-md text-white transition-all duration-300 ease-in group-hover:text-2xl">
+            Service Description
+          </p>
+        </div>
 
-      <div className={focusedDivAttribute}>
-        {focusedDiv}
-      </div>
-    </button>
+        <div className={focusedDivAttribute}>{focusedDiv}</div>
+      </button>
+    </>
   );
 }
 

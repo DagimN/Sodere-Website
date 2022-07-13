@@ -10,9 +10,9 @@ const Reviews = () => {
     <>
       <h1 className='flex justify-center text-xl mt-3'> FAQs & Reviews </h1>
       <section className="h-[300px] w-full flex overflow-y-hidden overflow-clip">
-        {users.map(() => {
+        {users.map((value, index) => {
           return (
-            <article className="h-[75%] w-[600px] bg-white shadow-lg rounded-xl m-5 grid">
+            <article key={index} className="h-[75%] w-[600px] bg-white shadow-lg rounded-xl m-5 grid">
               <div className="mx-5 flex mt-5">
                 <FaRegUser size={50} />
 
