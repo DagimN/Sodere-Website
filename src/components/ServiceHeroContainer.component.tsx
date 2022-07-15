@@ -5,7 +5,7 @@ type ServiceType = {
   description: string
 };
 
-//TODO: Fix the animation bug on the opacity
+//BUG: Fix the animation bug on the opacity
 const ServiceHeroContainer = ({service, image, isLeft}:{service:ServiceType, image:string, isLeft:boolean}) => {
     let containerAttribute = 
       "bg-black grid h-[400px] justify-items-center group transition-all duration-[1000ms]";

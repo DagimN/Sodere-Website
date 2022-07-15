@@ -1,4 +1,4 @@
-import React from "react";
+import React, {useState} from "react";
 
 //Images
 import logo from "../images/Logo.png";
@@ -8,6 +8,30 @@ import { FaBullhorn } from "react-icons/fa";
 import {IoIosBookmarks} from "react-icons/io";
 
 const Footer = () => {
+  let [customerName, setCustomerName] = useState<string>('');
+  let [customerEmail, setCustomerEmail] = useState<string>('');
+  let [customerMessage, setCustomerMessage] = useState<string>('');
+  let submitForm = async (event:React.FormEvent<HTMLFormElement>) => {
+    event.preventDefault();
+    
+    let res = await fetch("http://localhost:5001/qa", {
+      method: "POST",
+      mode: "cors",
+      body: JSON.stringify({
+        name: customerName,
+        email: customerEmail,
+        message: customerMessage,
+      }),
+      headers: { "Content-Type": "application/json" },
+    });
+
+    if (res.status === 200) console.log("success");
+    else console.log("failure");
+
+    //TODO: Add a GIF to notify of the status
+    document.location.reload();
+  };
+
   return (
     <section className="w-full h-[450px] bg-[#252525] flex justify-between">
       <article className="grid mx-10 w-2/3">
@@ -76,18 +100,24 @@ const Footer = () => {
 
       <article className="bg-[#333333] w-1/4 shadow-inner shadow-black">
         <h1 className="text-3xl text-[#FDBE34] my-3 mx-5">Any Comments?</h1>
-        <form action="" className="grid">
+        <form onSubmit={submitForm} className="grid">
           <input
             type="text"
             name="name"
             placeholder="Your Name"
             className="mx-5 rounded-md p-3 my-3"
+            onChange={(e) => {
+              setCustomerName(e.target.value);
+            }}
           />
           <input
             type="text"
             name="email"
             placeholder="Your Email"
             className="mx-5 rounded-md p-3 my-3"
+            onChange={(e) => {
+              setCustomerEmail(e.target.value);
+            }}
           />
           <textarea
             name="message"
@@ -95,8 +125,14 @@ const Footer = () => {
             rows={5}
             placeholder="Write Message"
             className="mx-5 rounded-md p-3 my-3 resize-none"
+            onChange={(e) => {
+              setCustomerMessage(e.target.value);
+            }}
           />
-          <button type="submit" className="bg-[#FDBE34] mx-5 rounded-md p-3">
+          <button
+            type="submit"
+            className="bg-[#FDBE34] mx-5 rounded-md p-3"
+          >
             Send Message
           </button>
         </form>

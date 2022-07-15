@@ -8,7 +8,7 @@ const Rooms = () => {
     let [roomIndex, setRoomIndex] = useState(0);
     
     useEffect(() => {
-        //TODO: Fix the bug
+        //BUG: Content should slide incrementally
         
       setTimeout(() => {
         if(!isIndexClicked){

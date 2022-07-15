@@ -9,7 +9,7 @@ const Reviews = () => {
   return (
     <>
       <h1 className='flex justify-center text-xl mt-3'> FAQs & Reviews </h1>
-      <section className="h-[300px] w-full flex overflow-y-hidden overflow-clip">
+      <section className="h-[300px] w-full flex overflow overflow-clip">
         {users.map((value, index) => {
           return (
             <article key={index} className="h-[75%] w-[600px] bg-white shadow-lg rounded-xl m-5 grid">
