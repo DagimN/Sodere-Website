@@ -15,20 +15,32 @@ const ServiceHeroContainer = ({service, image, isLeft}:{service:ServiceType, ima
 
     let focusedDiv = isLeft ? (
       <div>
-        <img src={image} alt="" className="h-[400px] w-full z-0 opacity-60 transition-all duration-[1000ms] absolute group-focus:w-2/3 group-focus:opacity-100 float-left" />
+        <img
+          src={image}
+          alt=""
+          className="h-[400px] w-full z-0 opacity-60 transition-all duration-[1000ms] absolute group-focus:w-2/3 group-focus:opacity-100 float-left"
+        />
 
         <div className="float-right">
-          <button>Close</button>
+          <form action="">
+            <input type="button" value="Close" />
+          </form>
         </div>
       </div>
     ) : (
-      <div className='flex relative right-[33%]'>
+      <div className="flex relative right-[33%]">
         <div className="invisible group-focus:visible relative group-focus:left-[33.3%]">
-          <button>Close</button>
+          <form action="">
+            <input type="button" value="Close" />
+          </form>
         </div>
 
-        <img src={image} alt="" className="h-[400px] w-full z-0 opacity-60 transition-all duration-[1000ms] absolute group-focus:w-2/3 group-focus:opacity-100 left-[33.3%] group-focus:left-[66.6%] rounded-tr-lg rounded-br-lg"/>
-      </div >
+        <img
+          src={image}
+          alt=""
+          className="h-[400px] w-full z-0 opacity-60 transition-all duration-[1000ms] absolute group-focus:w-2/3 group-focus:opacity-100 left-[33.3%] group-focus:left-[66.6%] rounded-tr-lg rounded-br-lg"
+        />
+      </div>
     );
   return (
     <>

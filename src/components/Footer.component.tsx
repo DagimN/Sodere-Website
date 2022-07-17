@@ -33,12 +33,16 @@ const Footer = () => {
   };
 
   return (
-    <section className="w-full h-[450px] bg-[#252525] flex justify-between">
-      <article className="grid mx-10 w-2/3">
-        <article className="h-[200px] flex">
-          <img src={logo} alt="logo" className="h-full mt-5" />
+    <section className="w-full bg-[#252525] lg:flex lg:justify-between grid">
+      <article className="lg:flex grid mx-10 justify-center">
+        <article className="lg:w-2/3 grid">
+          <img
+            src={logo}
+            alt="logo"
+            className="h-[120%] my-10 relative lg:left-[5%] left-[10%] sm:left-[30%]"
+          />
 
-          <div>
+          <div className="mt-20">
             <h1 className="text-4xl text-[#09d6be] my-5">
               Sodere Resort Hotel SC
             </h1>
@@ -50,9 +54,10 @@ const Footer = () => {
             </p>
           </div>
         </article>
-        <article>
+
+        <article className="w-full lg:w-1/3">
           <h1 className="text-3xl text-white my-3">Contact Us</h1>
-          <div className="flex gap-5">
+          <div className="lg:grid md:flex grid gap-5">
             <div className="bg-[#363636] rounded-xl p-3 w-full flex justify-between">
               <div>
                 <p className="text-[#727272]">Reservations</p>
@@ -75,30 +80,32 @@ const Footer = () => {
         </article>
       </article>
 
-      <article className="grid justify-items-center place-content-start w-[250px]">
-        <h1 className="text-3xl text-white my-3">Quick Link</h1>
-        <a href="/" className="text-[#727272] my-5">
-          Home
-        </a>
-        <a href="/" className="text-[#727272] my-5">
-          About Us
-        </a>
-        <a href="/" className="text-[#727272] my-5">
-          Services
-        </a>
-        <a href="/" className="text-[#727272] my-5">
-          Rooms
-        </a>
+      <article className="grid justify-items-center lg:w-[250px] mr-7">
+        <h1 className="text-3xl text-white my-3 Lg:h-[0px]">Quick Link</h1>
+        <div className="lg:grid flex gap-[17%] ml-10 lg:ml-0 lg:gap-0 justify-center">
+          <a href="/" className="text-[#727272] my-5">
+            Home
+          </a>
+          <a href="/" className="text-[#727272] my-5">
+            About Us
+          </a>
+          <a href="/" className="text-[#727272] my-5">
+            Services
+          </a>
+          <a href="/" className="text-[#727272] my-5">
+            Rooms
+          </a>
 
-        <a
-          href="https://www.google.com/maps/place/Sodere+Resort+Hotel/@8.404191,39.387584,13.95z/data=!4m8!3m7!1s0x164ad9f29d528e33:0x170cf8c5481ecf61!5m2!4m1!1i2!8m2!3d8.4016215!4d39.3934114"
-          className="text-[#727272] my-5"
-        >
-          Location
-        </a>
+          <a
+            href="https://www.google.com/maps/place/Sodere+Resort+Hotel/@8.404191,39.387584,13.95z/data=!4m8!3m7!1s0x164ad9f29d528e33:0x170cf8c5481ecf61!5m2!4m1!1i2!8m2!3d8.4016215!4d39.3934114"
+            className="text-[#727272] my-5"
+          >
+            Location
+          </a>
+        </div>
       </article>
 
-      <article className="bg-[#333333] w-1/4 shadow-inner shadow-black">
+      <article className="bg-[#333333] lg:w-1/3 w-full shadow-inner shadow-black">
         <h1 className="text-3xl text-[#FDBE34] my-3 mx-5">Any Comments?</h1>
         <form onSubmit={submitForm} className="grid">
           <input
@@ -129,10 +136,7 @@ const Footer = () => {
               setCustomerMessage(e.target.value);
             }}
           />
-          <button
-            type="submit"
-            className="bg-[#FDBE34] mx-5 rounded-md p-3"
-          >
+          <button type="submit" className="bg-[#FDBE34] mx-5 rounded-md p-3">
             Send Message
           </button>
         </form>

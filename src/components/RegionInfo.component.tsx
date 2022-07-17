@@ -5,16 +5,14 @@ import useWeather from '../hooks/useWeather';
 import useCurrency from '../hooks/useCurrency';
 
 //TODO: Add the country's images
-const RegionInfo = () => {
+const RegionInfo = ({visibility}:{visibility:string}) => {
   const weatherData = useWeather();
   const currencyData = useCurrency();
   const ETBRATE = 52.21;
   let [valueETB, setETBValue] = useState(currencyData?.ETB ?? ETBRATE);
-
-  console.log(valueETB);
     
   return (
-    <div className="grid relative bottom-8">
+    <div className={`md:grid relative md:bottom-8 z-10 ${visibility}`}>
       <div className="flex justify-center mr-10">
         <img src="" alt="" />
         <h3 className="text-xl">{(weatherData?.temp! - 273).toFixed(0)} °C</h3>
@@ -28,6 +26,7 @@ const RegionInfo = () => {
           type="text"
           name="birr"
           className="border-2 mr-3 rounded-lg px-2 py-1 w-[80%]"
+          onChange={()=>{}}
           defaultValue={currencyData?.ETB.toFixed(2)}
           value={
             valueETB !== undefined
@@ -35,7 +34,7 @@ const RegionInfo = () => {
               : currencyData?.ETB.toFixed(2)
           }
         />
-        ETB
+        🇪🇹
       </label>
       <label htmlFor="dollar" className="text-sm mr-2 my-1">
         <input
@@ -51,7 +50,7 @@ const RegionInfo = () => {
             );
           }}
         />
-        USD
+        🇺🇸
       </label>
     </div>
   );

@@ -20,9 +20,9 @@ const FrontPage = () => {
 
       <Booking />
 
-      <section className="w-full h-[600px] bg-[#D9D9DA] grid justify-items-center place-content-start pt-[150px]">
+      <section className="w-full h-[500px] bg-[#D9D9DA] grid justify-items-center place-content-start sm:pt-[150px] pt-[50px] sm:h-[600px]">
         <h1 className="text-5xl"> About Us </h1>
-        <p className="w-[70%] mt-10 text-center">Lorem ipsum dolor sit amet consectetur adipisicing elit. Consequatur delectus blanditiis explicabo similique dolorum repudiandae ipsa modi 
+        <p className="w-[80%] mt-10 text-center">Lorem ipsum dolor sit amet consectetur adipisicing elit. Consequatur delectus blanditiis explicabo similique dolorum repudiandae ipsa modi 
           excepturi laborum deleniti nemo assumenda eligendi a nostrum fugit dolores rerum, aliquam vel. Lorem ipsum dolor sit amet consectetur adipisicing elit. 
           Sed optio magnam cum, ducimus exercitationem minus quia reiciendis architecto iure, ipsum impedit inventore eos sunt facere, amet non adipisci culpa 
           delectus! Lorem ipsum dolor sit amet consectetur adipisicing elit. Blanditiis in totam ducimus culpa ea, vero inventore cupiditate nisi velit obcaecati, 
