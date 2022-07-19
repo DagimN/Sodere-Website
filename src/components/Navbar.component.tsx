@@ -1,4 +1,4 @@
-import React from "react";
+import React,{useState} from "react";
 
 //Images
 import logo from "../images/Logo.png";
@@ -11,6 +11,11 @@ import { AiFillHome } from "react-icons/ai";
 import { GoThreeBars } from "react-icons/go";
 
 const Navbar = () => {
+  let [popUpVisibility, setPopUpVisibility] = useState('invisible');
+  let activateNavBarPopUp = (value:string) => {
+    setPopUpVisibility(value);
+  } 
+
   return (
     <nav className="w-full h-[120px] bg-white py-1">
       <a href="/" className="inline-flex">
@@ -41,13 +46,16 @@ const Navbar = () => {
           </a>
         </div>
 
-        <RegionInfo visibility="hidden" />
+        <RegionInfo visibility="hidden" activatePopup={activateNavBarPopUp} />
 
-        <button className="md:hidden mx-3 group">
+        <button className="md:hidden mx-3" id="navigationPanelButton" onClick={()=>activateNavBarPopUp('visible')}>
           <GoThreeBars size={20} />
 
-          <div className="grid md:hidden invisible group-focus:visible absolute z-20 w-[250%] h-[400%] bg-white border-2 border-[#52BBCE] p-3 right-[10%] top-7 rounded-xl">
-            <RegionInfo visibility="grid" />
+          <div
+            onMouseLeave={()=>activateNavBarPopUp('invisible')}
+            className={`grid md:hidden ${popUpVisibility} cursor-default absolute z-20 w-[250%] h-[400%] bg-white border-2 border-[#52BBCE] p-3 right-[10%] top-7 rounded-xl`}
+          >
+            <RegionInfo visibility="grid" activatePopup={activateNavBarPopUp}/>
 
             <a href="/" className="mx-5">
               Rooms

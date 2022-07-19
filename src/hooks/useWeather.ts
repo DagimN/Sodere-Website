@@ -7,9 +7,7 @@ const useWeather = () => {
     temp: number;
   }>();
   useEffect(() => {
-    let url = `${baseUrl}/weather?lat=8.404191&lon=39.387584&appid=4e99899cfc7011ecb212636c606eecf1`;
-    //TODO: use .env
-    //console.log(process.env.REACT_APP_OPEN_WEATHERMAP_APIKEY);
+    let url = `${baseUrl}/weather?lat=8.404191&lon=39.387584&appid=${process.env.REACT_APP_OPEN_WEATHERMAP_APIKEY}`;
     getWeatherData(url).then((data)=>{
         setWeatherData({description: data.weather[0].description, temp: data.main.feels_like});
     });

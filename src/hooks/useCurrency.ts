@@ -8,9 +8,7 @@ const baseUrl = "https://api.apilayer.com/currency_data/live";
   }>();
 
   useEffect(() => {  
-    let url = `${baseUrl}?source=USD&currencies=ETB&apikey=I2jjG93u32eG90PY6LoLlx4MtbyjNNRj`;
-    //TODO: use .env
-    //console.log(process.env.REACT_APP_OPEN_WEATHERMAP_APIKEY);
+    let url = `${baseUrl}?source=USD&currencies=ETB&apikey=${process.env.REACT_APP_CURRENCY_APIKEY}`;
     getCurrencyData(url, currencyData).then((data) => {
         console.log(data.quotes.USDETB);
         setCurrencyData({USD: 1, ETB: Number.parseFloat(data.quotes.USDETB)});
@@ -20,7 +18,7 @@ const baseUrl = "https://api.apilayer.com/currency_data/live";
   return currencyData;
 };
 
-async function getCurrencyData(url: string, currencyData: {USD: number, ETB: number} | undefined, ATTEMPTS=10) {
+async function getCurrencyData(url: string, currencyData: {USD: number, ETB: number} | undefined, ATTEMPTS=3) {
     if(currencyData === undefined && ATTEMPTS > 0){
         let data = await fetch(url);
         if (data.status >= 200 && data.status < 300) return await data.json();

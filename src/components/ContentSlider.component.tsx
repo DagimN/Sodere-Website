@@ -7,9 +7,9 @@ import image3 from "../images/8.jpg";
 
 const ContentSlider = () => {
   const SLIDERTRANSITION100 =
-    "h-[550px] w-full z-0 transition-all duration-300 opacity-100";
+    "h-[400px] sm:h-[550px] w-full z-0 transition-all duration-300 opacity-100";
   const SLIDERTRANSITION0 =
-    "h-[550px] w-full z-0 transition-all duration-300 opacity-0";
+    "h-[400px] sm:h-[550px] w-full z-0 transition-all duration-300 opacity-0";
   let contentImages = [image1, image2, image3];
   let [contentIndex, setContentIndex] = useState({
     index: 0,
@@ -36,7 +36,7 @@ const ContentSlider = () => {
             active: true,
           });
         else setIndexClickBool(false);
-      }, 300);
+      }, 1000);
   }, [contentIndex, contentImages.length, isIndexClicked]);
 
   let titles = [
@@ -53,7 +53,7 @@ const ContentSlider = () => {
   ];
 
   return (
-    <main className="h-[550px]">
+    <main className="h-[400px] sm:h-[550px]">
       <img
         src={contentImages[contentIndex.index]}
         alt=""
@@ -81,7 +81,7 @@ const ContentSlider = () => {
         </div>
       </aside>
 
-      <div className="absolute bottom-[35px] left-1/2 flex gap-3 w-[10%]">
+      <div className="absolute left-1/2 flex gap-3 top-[495px] sm:top-[645px] z-20">
         {contentImages.map((value, index) => {
           if (index === contentIndex.index)
             return (

@@ -9,5 +9,7 @@ module.exports = {
   NODE_ENV: process.env.NODE_ENV,
   USERNAME: process.env.CLIENTNAME,
   PASSWORD: process.env.PASSWORD,
-  PORT: process.env.PORT
+  PORT: process.env.PORT,
+  SECRET: process.env.SECRET,
+  IV: process.env.IV,
 };

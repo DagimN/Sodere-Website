@@ -13,9 +13,9 @@ import { IoMdPeople, IoMdPricetags, IoMdTime } from 'react-icons/io';
 
 const Rooms = () => {
   const SLIDERTRANSITION100 =
-    "h-[400px] w-1/3 rounded-tr-xl rounded-br-xl z-0 absolute transition-all duration-300 opacity-100";
+    "h-[350px] sm:h-[400px] w-1/3 rounded-tr-xl rounded-br-xl z-0 absolute transition-all duration-300 opacity-100";
   const SLIDERTRANSITION0 =
-    "h-[400px] w-1/3 rounded-tr-xl rounded-br-xl z-0 absolute transition-all duration-300 opacity-0";
+    "h-[350px] sm:h-[400px] w-1/3 rounded-tr-xl rounded-br-xl z-0 absolute transition-all duration-300 opacity-0";
     let rooms = [room1, room2, room3, room4, room5];
     let [isIndexClicked, setIndexClickBool] = useState(false);
     let [roomIndex, setRoomIndex] = useState({
@@ -32,7 +32,7 @@ const Rooms = () => {
               attribute: SLIDERTRANSITION0,
               active: false,
             });
-          }, 10000);
+          }, 2500);
         else
           setTimeout(() => {
             if (!isIndexClicked)
@@ -42,15 +42,15 @@ const Rooms = () => {
                 active: true,
               });
             else setIndexClickBool(false);
-          }, 300);
+          }, 1300);
     }, [roomIndex, rooms.length, isIndexClicked]);
 
   return (
-    <section className="w-[97%] h-[400px] m-5 rounded-xl bg-[#45303C] flex">
+    <section className="w-[90%] sm:w-[95%] h-[350px] sm:h-[400px] m-5 rounded-xl bg-[#45303C] flex">
       <article className="grid w-2/3 h-[300px]">
         <h1 className="m-5 text-5xl text-[#EB9A3E]">Room Type Name</h1>
 
-        <div className="grid grid-cols-2 ml-24">
+        <div className="grid grid-cols-2 ml-5 sm:ml-24">
           <div className="flex gap-5">
             <FaBed size={35} color="#EB9A3E" />
             <p className="text-[#DAE2E0] mt-2">King Sized Bed</p>

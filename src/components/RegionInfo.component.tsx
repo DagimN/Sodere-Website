@@ -5,7 +5,7 @@ import useWeather from '../hooks/useWeather';
 import useCurrency from '../hooks/useCurrency';
 
 //TODO: Add the country's images
-const RegionInfo = ({visibility}:{visibility:string}) => {
+const RegionInfo = ({visibility, activatePopup}:{visibility:string, activatePopup:(value:string)=>void}) => {
   const weatherData = useWeather();
   const currencyData = useCurrency();
   const ETBRATE = 52.21;
@@ -26,7 +26,10 @@ const RegionInfo = ({visibility}:{visibility:string}) => {
           type="text"
           name="birr"
           className="border-2 mr-3 rounded-lg px-2 py-1 w-[80%]"
-          onChange={()=>{}}
+          onChange={() => {}}
+          onClick={() => {
+            activatePopup("visible");
+          }}
           defaultValue={currencyData?.ETB.toFixed(2)}
           value={
             valueETB !== undefined
@@ -44,6 +47,9 @@ const RegionInfo = ({visibility}:{visibility:string}) => {
           min={0}
           defaultValue={1}
           className="border-2 mr-3 rounded-lg px-2 py-1 w-[80%]"
+          onClick={() => {
+            activatePopup("invisible");
+          }}
           onChange={(e) => {
             setETBValue(
               Number.parseFloat(e.target.value) * (currencyData?.ETB ?? ETBRATE)
