@@ -5,7 +5,6 @@ type ServiceType = {
   description: string
 };
 
-//BUG: Fix the animation bug on the opacity
 const ServiceHeroContainer = ({service, image, isLeft}:{service:ServiceType, image:string, isLeft:boolean}) => {
     let containerAttribute = 
       "bg-black grid h-[300px] sm:h-[400px] justify-items-center group transition-all duration-[1000ms]";
@@ -18,7 +17,7 @@ const ServiceHeroContainer = ({service, image, isLeft}:{service:ServiceType, ima
         <img
           src={image}
           alt=""
-          className="h-[300px] sm:h-[400px] w-full z-0 opacity-60 transition-all duration-[1000ms] absolute group-focus:w-2/3 group-focus:opacity-100 float-left"
+          className="h-[300px] sm:h-[400px] w-[99%] z-0 opacity-60 transition-all ease-in-out duration-[1000ms] absolute group-focus:w-2/3 group-focus:opacity-100 float-left"
         />
 
         <div className="float-right">
@@ -38,7 +37,7 @@ const ServiceHeroContainer = ({service, image, isLeft}:{service:ServiceType, ima
         <img
           src={image}
           alt=""
-          className="h-[300px] sm:h-[400px] w-full z-0 opacity-60 transition-all duration-[1000ms] absolute group-focus:w-2/3 group-focus:opacity-100 left-[33.3%] group-focus:left-[66.6%] rounded-tr-lg rounded-br-lg"
+          className="h-[300px] sm:h-[400px] w-[99%] z-0 opacity-60 transition-all ease-in-out duration-[1000ms] absolute group-focus:w-2/3 group-focus:opacity-100 left-[33.7%] group-focus:left-[66.6%] rounded-tr-lg rounded-br-lg"
         />
       </div>
     );

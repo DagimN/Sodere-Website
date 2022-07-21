@@ -1,12 +1,31 @@
-import React, {useState} from 'react';
+import React, { useState } from "react";
+import { submitBookingForm } from "../utils/submitBookingForm";
+
+//Icons
+import { TiTick } from "react-icons/ti";
+import { PuffLoader } from "react-spinners";
+import { VscError } from "react-icons/vsc";
 
 const Booking = () => {
-  let [customerName, setCustomerName] = useState('');
+  let [customerName, setCustomerName] = useState("");
   let [customerEmail, setCustomerEmail] = useState("");
   let [customerPhone, setCustomerPhone] = useState("");
   let [customerType, setCustomerType] = useState("");
   let [customerRooms, setCustomerRooms] = useState("");
   let [customerOther, setCustomerOther] = useState("");
+  let [submitState, setSubmitState] = useState(0);
+
+  let innerSubmitButtonComponent;
+
+  if (submitState === 0) {
+    innerSubmitButtonComponent = <h1>Make Reservation</h1>;
+  } else if (submitState === 1) {
+    innerSubmitButtonComponent = <PuffLoader size={30} />;
+  } else if (submitState === 2) {
+    innerSubmitButtonComponent = <TiTick className="ml-[50%]" />;
+  } else {
+    innerSubmitButtonComponent = <VscError className="ml-[50%]" />;
+  }
 
   let telephoneInput = (
     <>
@@ -42,41 +61,35 @@ const Booking = () => {
       </div>
 
       <button
+        onClick={() => {
+          setSubmitState(1);
+        }}
+        onMouseLeave={() => {
+          if (submitState === 3 || submitState === 2) setSubmitState(0);
+        }}
         type="submit"
         className="mb-5 w-1/2 bg-green-700 p-3 rounded-lg text-white ml-[22.5%] inline lg:hidden"
       >
-        Make Reservation
+        {innerSubmitButtonComponent}
       </button>
     </>
   );
-  let submitForm = async (event: React.FormEvent<HTMLFormElement>) => {
-    event.preventDefault();
-
-    let res = await fetch("http://localhost:5001/book", {
-      method: "POST",
-      mode: "cors",
-      body: JSON.stringify({
-        name: customerName,
-        email: customerEmail,
-        phone: customerPhone,
-        type: customerType,
-        rooms: customerRooms,
-        other: customerOther,
-      }),
-      headers: { "Content-Type": "application/json" },
-    });
-
-    if (res.status === 200) console.log("success");
-    else console.log("failure");
-
-    //TODO: Add a GIF to notify of the status
-    document.location.reload();
-  };
 
   return (
     <section className="w-full bg-[#52BBCE]">
       <h1 className="text-4xl flex justify-center pt-3">BOOK NOW</h1>
-      <form onSubmit={submitForm}>
+      <form
+        onSubmit={(e) =>
+          submitBookingForm(e, setSubmitState, {
+            customerName,
+            customerEmail,
+            customerPhone,
+            customerType,
+            customerRooms,
+            customerOther,
+          })
+        }
+      >
         <div className="md:flex md:justify-between grid justify-center">
           <div className="ml-5 mt-3 lg:w-1/3 w-full">
             <label htmlFor="name">
@@ -155,15 +168,20 @@ const Booking = () => {
 
         <div className="grid justify-center lg:hidden">{othSubmitInput}</div>
         <button
+          onClick={() => {
+            setSubmitState(1);
+          }}
+          onMouseLeave={() => {
+            if (submitState === 3 || submitState === 2) setSubmitState(0);
+          }}
           type="submit"
           className="mb-5 w-1/4 bg-green-700 p-3 rounded-lg text-white ml-[40%] lg:inline justify-center hidden"
         >
-          Make Reservation
+          {innerSubmitButtonComponent}
         </button>
       </form>
     </section>
   );
-  
-}
+};
 
 export default Booking;

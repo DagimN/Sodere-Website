@@ -4,7 +4,6 @@ import React, { useState } from 'react';
 import useWeather from '../hooks/useWeather';
 import useCurrency from '../hooks/useCurrency';
 
-//TODO: Add the country's images
 const RegionInfo = ({visibility, activatePopup}:{visibility:string, activatePopup:(value:string)=>void}) => {
   const weatherData = useWeather();
   const currencyData = useCurrency();

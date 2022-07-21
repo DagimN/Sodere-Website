@@ -1,4 +1,5 @@
 import React, {useState} from "react";
+import {submitCommentForm} from "../utils/submitCommentForm";
 
 //Images
 import logo from "../images/Logo.png";
@@ -6,31 +7,28 @@ import logo from "../images/Logo.png";
 //Icons
 import { FaBullhorn } from "react-icons/fa";
 import {IoIosBookmarks} from "react-icons/io";
+import {TiTick} from "react-icons/ti";
+import { PuffLoader } from "react-spinners"; 
+import {VscError} from "react-icons/vsc";
 
 const Footer = () => {
   let [customerName, setCustomerName] = useState<string>('');
   let [customerEmail, setCustomerEmail] = useState<string>('');
   let [customerMessage, setCustomerMessage] = useState<string>('');
-  let submitForm = async (event:React.FormEvent<HTMLFormElement>) => {
-    event.preventDefault();
-    
-    let res = await fetch("http://localhost:5001/qa", {
-      method: "POST",
-      mode: "cors",
-      body: JSON.stringify({
-        name: customerName,
-        email: customerEmail,
-        message: customerMessage,
-      }),
-      headers: { "Content-Type": "application/json" },
-    });
+  let [submitState, setSubmitState] = useState(0);
 
-    if (res.status === 200) console.log("success");
-    else console.log("failure");
+  let innerSubmitButtonComponent;
 
-    //TODO: Add a GIF to notify of the status
-    document.location.reload();
-  };
+  if(submitState === 0){
+    innerSubmitButtonComponent = <h1>Send Message</h1>;
+  }
+  else if (submitState === 1) {
+    innerSubmitButtonComponent = <PuffLoader size={30} className="ml-[50%]"/>;
+  } else if (submitState === 2) {
+    innerSubmitButtonComponent = <TiTick className="ml-[50%]" />;
+  } else {
+    innerSubmitButtonComponent = <VscError className="ml-[50%]" />;
+  }
 
   return (
     <section className="w-full bg-[#252525] lg:flex lg:justify-between grid">
@@ -107,7 +105,16 @@ const Footer = () => {
 
       <article className="bg-[#333333] lg:w-1/3 w-full shadow-inner shadow-black">
         <h1 className="text-3xl text-[#FDBE34] my-3 mx-5">Any Comments?</h1>
-        <form onSubmit={submitForm} className="grid">
+        <form
+          onSubmit={(e) =>
+            submitCommentForm(e, setSubmitState, {
+              customerName,
+              customerEmail,
+              customerMessage,
+            })
+          }
+          className="grid"
+        >
           <input
             type="text"
             name="name"
@@ -136,8 +143,17 @@ const Footer = () => {
               setCustomerMessage(e.target.value);
             }}
           />
-          <button type="submit" className="bg-[#FDBE34] mx-5 rounded-md p-3">
-            Send Message
+          <button
+            type="submit"
+            onClick={() => {
+              setSubmitState(1);
+            }}
+            onMouseLeave={() => {
+              if (submitState === 3 || submitState === 2) setSubmitState(0);
+            }}
+            className="bg-[#FDBE34] mx-5 rounded-md p-3"
+          >
+            {innerSubmitButtonComponent}
           </button>
         </form>
       </article>
