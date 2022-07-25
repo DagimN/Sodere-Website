@@ -14,8 +14,25 @@ const Booking = () => {
   let [customerRooms, setCustomerRooms] = useState("");
   let [customerOther, setCustomerOther] = useState("");
   let [submitState, setSubmitState] = useState(0);
-
   let innerSubmitButtonComponent;
+
+  let [windowInnerWidth, setWindowInnerWidth] = useState(window.innerWidth);
+
+  window.addEventListener("resize", () => {
+    if (
+      window.innerWidth <= 405 ||
+      (window.innerWidth >= 410 && window.innerWidth <= 600)
+    )
+      setWindowInnerWidth(window.innerWidth);
+  });
+
+  console.log(
+    `${new Date().getFullYear().toString()}-${
+      new Date().getMonth() / 10 > 1
+        ? new Date().getMonth() + 1
+        : "0" + (new Date().getMonth() + 1)
+    }-${new Date().getDate().toString()}`
+  );
 
   if (submitState === 0) {
     innerSubmitButtonComponent = <h1>Make Reservation</h1>;
@@ -44,12 +61,12 @@ const Booking = () => {
 
   let othSubmitInput = (
     <>
-      <div className="mt-3 md:mr-5 ml-6">
+      <div className="mt-3 mr-5 ml-6">
         <label htmlFor="other">
           <h2 className="text-sm my-2">Additional Requirements</h2>
           <textarea
             name="other"
-            cols={48}
+            cols={windowInnerWidth >= 405 ? 45 : 30}
             rows={8}
             placeholder="Anything else you need?"
             className="resize-none p-2 rounded-md"
@@ -91,7 +108,7 @@ const Booking = () => {
         }
       >
         <div className="md:flex md:justify-between grid justify-center">
-          <div className="ml-5 mt-3 lg:w-1/3 w-full">
+          <div className="ml-2 sm:ml-5 mt-3 lg:w-1/3 w-[95%]">
             <label htmlFor="name">
               <h2 className="text-sm my-2">Full Name</h2>
               <input
@@ -123,12 +140,12 @@ const Booking = () => {
             </label>
           </div>
 
-          <div className="mt-3 mx-5 w-full lg:w-1/3">
+          <div className="mt-3 mx-2 sm:mx-5 w-[95%] lg:w-1/3">
             <label htmlFor="phone" className="hidden md:inline lg:hidden">
               {telephoneInput}
             </label>
 
-            <div className="flex gap-20 md:gap-10 w-full sm:justify-center">
+            <div className="flex gap-20 md:gap-10 w-[95%] sm:justify-center">
               <label htmlFor="type">
                 <h2 className="text-sm my-2">Room Type</h2>
                 <select
@@ -164,6 +181,42 @@ const Booking = () => {
           <div className="lg:grid lg:justify-center hidden">
             {othSubmitInput}
           </div>
+        </div>
+
+        <div className="flex justify-center lg:justify-start gap-10 mx-2 sm:mx-5">
+          <label htmlFor="startdate" className="grid my-2">
+            Arrival
+            <input
+              type="date"
+              name="startdate"
+              defaultValue={`${new Date().getFullYear().toString()}-${
+                new Date().getMonth() / 10 > 1
+                  ? new Date().getMonth() + 1
+                  : "0" + (new Date().getMonth() + 1)
+              }-${new Date().getDate().toString()}`}
+              min={`${new Date().getFullYear().toString()}-${
+                new Date().getMonth() / 10 > 1
+                  ? new Date().getMonth() + 1
+                  : "0" + (new Date().getMonth() + 1)
+              }-${new Date().getDate().toString()}`}
+              className="rounded-md p-2"
+            />
+          </label>
+
+          <label htmlFor="enddate" className="grid my-2">
+            Departure
+            <input
+              type="date"
+              name="enddate"
+              min={`${new Date().getFullYear().toString()}-${
+                new Date().getMonth() / 10 > 1
+                  ? new Date().getMonth() + 1
+                  : "0" + (new Date().getMonth() + 1)
+              }-${new Date().getDate().toString()}`}
+              id=""
+              className="rounded-md p-2"
+            />
+          </label>
         </div>
 
         <div className="grid justify-center lg:hidden">{othSubmitInput}</div>

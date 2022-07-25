@@ -12,23 +12,29 @@ import { PuffLoader } from "react-spinners";
 import {VscError} from "react-icons/vsc";
 
 const Footer = () => {
-  let [customerName, setCustomerName] = useState<string>('');
-  let [customerEmail, setCustomerEmail] = useState<string>('');
-  let [customerMessage, setCustomerMessage] = useState<string>('');
+  let [customerName, setCustomerName] = useState<string>("");
+  let [customerEmail, setCustomerEmail] = useState<string>("");
+  let [customerMessage, setCustomerMessage] = useState<string>("");
   let [submitState, setSubmitState] = useState(0);
 
   let innerSubmitButtonComponent;
 
-  if(submitState === 0){
+  if (submitState === 0) {
     innerSubmitButtonComponent = <h1>Send Message</h1>;
-  }
-  else if (submitState === 1) {
-    innerSubmitButtonComponent = <PuffLoader size={30} className="ml-[50%]"/>;
+  } else if (submitState === 1) {
+    innerSubmitButtonComponent = <PuffLoader size={30} className="ml-[50%]" />;
   } else if (submitState === 2) {
     innerSubmitButtonComponent = <TiTick className="ml-[50%]" />;
   } else {
     innerSubmitButtonComponent = <VscError className="ml-[50%]" />;
   }
+
+  let [windowInnerWidth, setWindowInnerWidth] = useState(window.innerWidth);
+
+  window.addEventListener("resize", () => {
+    if (window.innerWidth === 300 || window.innerWidth === 310)
+      setWindowInnerWidth(window.innerWidth);
+  });
 
   return (
     <section className="w-full bg-[#252525] lg:flex lg:justify-between grid">
@@ -80,30 +86,35 @@ const Footer = () => {
 
       <article className="grid justify-items-center lg:w-[250px] mr-7">
         <h1 className="text-3xl text-white my-3 Lg:h-[0px]">Quick Link</h1>
-        <div className="lg:grid flex gap-[17%] ml-10 lg:ml-0 lg:gap-0 justify-center">
-          <a href="/" className="text-[#727272] my-5">
-            Home
-          </a>
-          <a href="/" className="text-[#727272] my-5">
-            About Us
-          </a>
-          <a href="/" className="text-[#727272] my-5">
-            Services
-          </a>
-          <a href="/" className="text-[#727272] my-5">
-            Rooms
-          </a>
+        <div className="grid lg:ml-0 lg:gap-0 justify-center">
+          <div className="lg:grid lg:gap-0 flex justify-center gap-[17%]">
+            <a href="/" className="text-[#727272] my-5">
+              Home
+            </a>
+            <a href="/" className="text-[#727272] my-5 w-40">
+              About Us
+            </a>
+            <a href="/" className="text-[#727272] my-5">
+              Services
+            </a>
+          </div>
 
-          <a
-            href="https://www.google.com/maps/place/Sodere+Resort+Hotel/@8.404191,39.387584,13.95z/data=!4m8!3m7!1s0x164ad9f29d528e33:0x170cf8c5481ecf61!5m2!4m1!1i2!8m2!3d8.4016215!4d39.3934114"
-            className="text-[#727272] my-5"
-          >
-            Location
-          </a>
+          <div className="lg:grid lg:gap-0 flex justify-center gap-[17%]">
+            <a href="/" className="text-[#727272] my-5">
+              Rooms
+            </a>
+
+            <a
+              href="https://www.google.com/maps/place/Sodere+Resort+Hotel/@8.404191,39.387584,13.95z/data=!4m8!3m7!1s0x164ad9f29d528e33:0x170cf8c5481ecf61!5m2!4m1!1i2!8m2!3d8.4016215!4d39.3934114"
+              className="text-[#727272] my-5"
+            >
+              Location
+            </a>
+          </div>
         </div>
       </article>
 
-      <article className="bg-[#333333] lg:w-1/3 w-full shadow-inner shadow-black">
+      <article className={`bg-[#333333] lg:w-1/3 sm:w-full shadow-inner shadow-black`}>
         <h1 className="text-3xl text-[#FDBE34] my-3 mx-5">Any Comments?</h1>
         <form
           onSubmit={(e) =>
@@ -113,7 +124,7 @@ const Footer = () => {
               customerMessage,
             })
           }
-          className="grid"
+          className="grid w-[95%]"
         >
           <input
             type="text"
@@ -135,7 +146,7 @@ const Footer = () => {
           />
           <textarea
             name="message"
-            cols={30}
+            cols={windowInnerWidth >= 405 ? 45 : 30}
             rows={5}
             placeholder="Write Message"
             className="mx-5 rounded-md p-3 my-3 resize-none"
