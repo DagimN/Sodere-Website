@@ -86,12 +86,12 @@ const Footer = () => {
 
       <article className="grid justify-items-center lg:w-[250px] mr-7">
         <h1 className="text-3xl text-white my-3 Lg:h-[0px]">Quick Link</h1>
-        <div className="grid lg:ml-0 lg:gap-0 justify-center">
-          <div className="lg:grid lg:gap-0 flex justify-center gap-[17%]">
+        <div className="grid lg:ml-0 lg:gap-0 justify-items-center">
+          <div className="lg:grid lg:gap-0 flex justify-items-center gap-[17%]">
             <a href="/" className="text-[#727272] my-5">
               Home
             </a>
-            <a href="/" className="text-[#727272] my-5 w-40">
+            <a href="/" className="text-[#727272] my-5 w-40 lg:w-full">
               About Us
             </a>
             <a href="/" className="text-[#727272] my-5">
