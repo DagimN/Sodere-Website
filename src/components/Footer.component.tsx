@@ -2,11 +2,11 @@ import React, {useState} from "react";
 import {submitCommentForm} from "../utils/submitCommentForm";
 
 //Images
-import logo from "../images/Logo.png";
+import logo from "../images/Logo2.png";
 
 //Icons
 import { FaBullhorn } from "react-icons/fa";
-import {IoIosBookmarks} from "react-icons/io";
+//import {IoIosBookmarks} from "react-icons/io";
 import {TiTick} from "react-icons/ti";
 import { PuffLoader } from "react-spinners"; 
 import {VscError} from "react-icons/vsc";
@@ -43,10 +43,10 @@ const Footer = () => {
           <img
             src={logo}
             alt="logo"
-            className="h-[120%] my-10 relative lg:left-[5%] left-[10%] sm:left-[30%]"
+            className="relative mt-5 w-2/3 lg:left-[5%] left-[10%] sm:left-[20%]"
           />
 
-          <div className="mt-20">
+          <div>
             <h1 className="text-4xl text-[#09d6be] my-5">
               Sodere Resort Hotel SC
             </h1>
@@ -62,7 +62,7 @@ const Footer = () => {
         <article className="w-full lg:w-1/3">
           <h1 className="text-3xl text-white my-3">Contact Us</h1>
           <div className="lg:grid md:flex grid gap-5">
-            <div className="bg-[#363636] rounded-xl p-3 w-full flex justify-between">
+            {/* <div className="bg-[#363636] rounded-xl p-3 w-full flex justify-between">
               <div>
                 <p className="text-[#727272]">Reservations</p>
                 <p>+251221113400</p>
@@ -70,12 +70,14 @@ const Footer = () => {
               </div>
 
               <IoIosBookmarks size={60} className="mr-6 mt-1" color="#252525" />
-            </div>
+            </div> */}
 
             <div className="bg-[#363636] rounded-xl p-3 w-full flex justify-between">
               <div>
                 <p className="text-[#727272]">Marketing Office</p>
-                <p>+251930107514</p>
+                <p>+251115573594</p>
+                {/* //TODO: Create email domain for website */}
+                <p>info@sodere.com</p>
               </div>
 
               <FaBullhorn size={60} className="mr-6" color="#252525" />
@@ -114,7 +116,9 @@ const Footer = () => {
         </div>
       </article>
 
-      <article className={`bg-[#333333] lg:w-1/3 sm:w-full shadow-inner shadow-black`}>
+      <article
+        className={`bg-[#333333] lg:w-1/3 sm:w-full shadow-inner shadow-black`}
+      >
         <h1 className="text-3xl text-[#FDBE34] my-3 mx-5">Any Comments?</h1>
         <form
           onSubmit={(e) =>
