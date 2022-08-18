@@ -155,10 +155,12 @@ const Booking = () => {
                     setCustomerType(e.target.value);
                   }}
                 >
-                  <option value="1">Room1</option>
-                  <option value="2">Room2</option>
-                  <option value="3">Room3</option>
-                  <option value="4">Room4</option>
+                  <option value="Standard">Standard</option>
+                  <option value="Deluxe">Deluxe</option>
+                  <option value="Twins">Twins</option>
+                  <option value="Suite">Suite</option>
+                  <option value="Royal Suite">Royal Suite</option>
+                  <option value="Conference">Conference</option>
                 </select>
               </label>
 

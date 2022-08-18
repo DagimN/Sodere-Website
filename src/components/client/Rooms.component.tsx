@@ -57,47 +57,82 @@ const Rooms = () => {
       people: "Per Person",
       image: room5,
     },
+    {
+      name: "Conference",
+      bed: "",
+      price: "4000.00 ETB",
+      duration: "Per Day",
+      people: "From 10 to 20",
+      image: room5,
+    },
   ];
-  let [isIndexClicked, setIndexClickBool] = useState(false);
   let [roomIndex, setRoomIndex] = useState({
     index: 0,
     attribute: SLIDERTRANSITION100,
     active: true,
   });
+  let [tempIndex, setTempIndex] = useState(-1);
+  let [timeoutIds, addTimeoutId] = useState<NodeJS.Timeout[]>([]);
 
   useEffect(() => {
-    if (roomIndex.active)
+    if (tempIndex !== -1)
+      timeoutIds.forEach((value) => {
+        clearTimeout(value);
+      });
+
+    if (tempIndex === roomIndex.index && tempIndex !== -1) setTempIndex(-1);
+
+    if (tempIndex !== -1) {
       setTimeout(() => {
         setRoomIndex({
-          ...roomIndex,
+          index: tempIndex,
+          attribute: SLIDERTRANSITION100,
+          active: true,
+        });
+      });
+    }
+  }, [tempIndex, roomIndex.index, timeoutIds]);
+
+  useEffect(() => {
+    if (roomIndex.active) {
+      let id = setTimeout(() => {
+        setRoomIndex({
+          index: roomIndex.index, //(roomIndex.index + 1) % rooms.length,
           attribute: SLIDERTRANSITION0,
           active: false,
         });
       }, 2500);
-    else
-      setTimeout(() => {
-        if (!isIndexClicked)
-          setRoomIndex({
-            index: (roomIndex.index + 1) % rooms.length,
-            attribute: SLIDERTRANSITION100,
-            active: true,
-          });
-        else setIndexClickBool(false);
-      }, 800);
-  }, [roomIndex, rooms.length, isIndexClicked]);
+      timeoutIds.push(id);
+      addTimeoutId(timeoutIds);
+    } else {
+      let id = setTimeout(() => {
+        setRoomIndex({
+          index: (roomIndex.index + 1) % rooms.length,
+          attribute: SLIDERTRANSITION100,
+          active: true,
+        });
+      }, 300);
+      timeoutIds.push(id);
+      addTimeoutId(timeoutIds);
+    }
+  }, [roomIndex, rooms.length, timeoutIds]);
 
   return (
     <section className="w-[90%] sm:w-[95%] h-[350px] sm:h-[400px] m-5 rounded-xl bg-[#45303C] flex">
       <article className="grid w-2/3 h-[300px]">
         <h1 className="m-5 text-5xl text-[#EB9A3E]">
-          {rooms[roomIndex.index].name}
+          {rooms[roomIndex.index].name ?? ""}
         </h1>
 
         <div className="grid grid-cols-2 ml-5 sm:ml-24">
-          <div className="flex gap-5">
-            <FaBed size={35} color="#EB9A3E" />
-            <p className="text-[#DAE2E0] mt-2">{rooms[roomIndex.index].bed}</p>
-          </div>
+          {rooms[roomIndex.index].bed !== "" ? (
+            <div className="flex gap-5">
+              <FaBed size={35} color="#EB9A3E" />
+              <p className="text-[#DAE2E0] mt-2">
+                {rooms[roomIndex.index].bed}
+              </p>
+            </div>
+          ) : null}
 
           <div className="flex gap-5">
             <IoMdPeople size={35} color="#EB9A3E" />
@@ -144,12 +179,7 @@ const Rooms = () => {
                   key={index}
                   className="bg-transparent border-white border-2 rounded-full w-4 h-4 hover:cursor-pointer"
                   onClick={() => {
-                    setIndexClickBool(true);
-                    setRoomIndex({
-                      index: index - 1,
-                      attribute: SLIDERTRANSITION0,
-                      active: false,
-                    });
+                    setTempIndex(index);
                   }}
                 ></div>
               );

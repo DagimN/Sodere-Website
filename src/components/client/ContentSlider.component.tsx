@@ -16,41 +16,64 @@ const ContentSlider = () => {
     attribute: SLIDERTRANSITION100,
     active: true,
   });
-  let [isIndexClicked, setIndexClickBool] = useState(false);
+  let [tempIndex, setTempIndex] = useState(-1);
+  let [timeoutIds, addTimeoutId] = useState<NodeJS.Timeout[]>([]);
 
   useEffect(() => {
-    if (contentIndex.active)
+    if (tempIndex !== -1)
+      timeoutIds.forEach((value) => {
+        clearTimeout(value);
+      });
+
+    if (tempIndex === contentIndex.index && tempIndex !== -1) setTempIndex(-1);
+
+    if (tempIndex !== -1) {
       setTimeout(() => {
         setContentIndex({
-          ...contentIndex,
+          index: tempIndex,
+          attribute: SLIDERTRANSITION100,
+          active: true,
+        });
+      });
+    }
+  }, [tempIndex, contentIndex.index, timeoutIds]);
+
+  useEffect(() => {
+    if (contentIndex.active) {
+      let id = setTimeout(() => {
+        setContentIndex({
+          index: contentIndex.index,
           attribute: SLIDERTRANSITION0,
           active: false,
         });
       }, 10000);
-    else
-      setTimeout(() => {
-        if (!isIndexClicked)
-          setContentIndex({
-            index: (contentIndex.index + 1) % contentImages.length,
-            attribute: SLIDERTRANSITION100,
-            active: true,
-          });
-        else setIndexClickBool(false);
-      }, 1000);
-  }, [contentIndex, contentImages.length, isIndexClicked]);
+      timeoutIds.push(id);
+      addTimeoutId(timeoutIds);
+    } else {
+      let id = setTimeout(() => {
+        setContentIndex({
+          index: (contentIndex.index + 1) % contentImages.length,
+          attribute: SLIDERTRANSITION100,
+          active: true,
+        });
+      }, 300);
+      timeoutIds.push(id);
+      addTimeoutId(timeoutIds);
+    }
+  }, [contentIndex, contentImages.length, timeoutIds]);
 
-  let titles = [
-    "Swimming Pools",
-    "Natural Spring",
-    "Accomodations",
-    "Delights",
-  ];
-  let descriptions = [
-    "Indoor and Outdoor",
-    "Hot and Cozy",
-    "Vast rooms and suites",
-    "Bar/Restaurant and Others",
-  ];
+  // let titles = [
+  //   "Swimming Pools",
+  //   "Natural Spring",
+  //   "Accomodations",
+  //   "Delights",
+  // ];
+  // let descriptions = [
+  //   "Indoor and Outdoor",
+  //   "Hot and Cozy",
+  //   "Vast rooms and suites",
+  //   "Bar/Restaurant and Others",
+  // ];
 
   return (
     <main className="h-[400px] sm:h-[550px]">
@@ -59,6 +82,7 @@ const ContentSlider = () => {
         alt=""
         className={contentIndex.attribute}
       />
+{/*       
       <aside className="bg-black/30 w-full h-36 z-10 relative bottom-44 sm:flex grid grid-cols-2 justify-around">
         <div className="grid place-items-center">
           <h1 className="text-white">{titles[0]}</h1>
@@ -80,7 +104,7 @@ const ContentSlider = () => {
           <p className="text-white relative sm:bottom-10">{descriptions[3]}</p>
         </div>
       </aside>
-
+ */}
       <div className="absolute left-1/2 flex gap-3 top-[495px] sm:top-[645px] z-20">
         {contentImages.map((value, index) => {
           if (index === contentIndex.index)
@@ -93,12 +117,7 @@ const ContentSlider = () => {
                 key={index}
                 className="bg-transparent border-white border-2 rounded-full w-4 h-4 hover:cursor-pointer"
                 onClick={() => {
-                  setIndexClickBool(true);
-                  setContentIndex({
-                    index: index - 1,
-                    attribute: SLIDERTRANSITION0,
-                    active: false,
-                  });
+                  setTempIndex(index);
                 }}
               ></div>
             );
