@@ -1,7 +1,7 @@
 import React,{useState} from "react";
 
 //Images
-import logo from "../images/Logo.png";
+import logo from "../images/Logo2.png";
 
 //Components
 import RegionInfo from "./RegionInfo.component";
@@ -22,7 +22,7 @@ const Navbar = () => {
         <img
           src={logo}
           alt="logo"
-          className="h-[75px] w-[100px] ml-4 mt-4 mb-2"
+          className="h-[90px] w-[170px] ml-4 mt-2 mb-2"
         />
       </a>
 
