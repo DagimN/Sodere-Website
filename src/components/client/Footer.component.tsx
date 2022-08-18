@@ -76,9 +76,16 @@ const Footer = () => {
             <div className="bg-[#363636] rounded-xl p-3 w-full grid justify-center justify-items-center">
               <FaBullhorn size={60} className="mr-6" color="#252525" />
 
-              <div className="my-3">
-                <p>+251115573594</p>
-                <p>+251911508734</p>
+              <div>
+                <div className="my-3">
+                  <p>For Reservations</p>
+                  <p>+251115573594</p>
+                </div>
+
+                <div className="my-3">
+                  <p>Hotel Manager</p>
+                  <p>+251911508734</p>
+                </div>
 
                 {/* //TODO: Create email domain for website */}
                 <p>info@sodere.com</p>
