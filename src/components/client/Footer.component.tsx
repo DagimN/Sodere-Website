@@ -1,8 +1,8 @@
 import React, { useState } from "react";
-import { submitCommentForm } from "../utils/submitCommentForm";
+import { submitCommentForm } from "../../utils/submitCommentForm";
 
 //Images
-import logo from "../images/Logo2.png";
+import logo from "../../images/Logo2.png";
 
 //Icons
 import { FaBullhorn } from "react-icons/fa";

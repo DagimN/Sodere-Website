@@ -1,9 +1,9 @@
 import React, { useEffect, useState } from "react";
 
 //Images
-import image1 from "../images/2.jpg";
-import image2 from "../images/3.jpg";
-import image3 from "../images/8.jpg";
+import image1 from "../../images/2.jpg";
+import image2 from "../../images/3.jpg";
+import image3 from "../../images/8.jpg";
 
 const ContentSlider = () => {
   const SLIDERTRANSITION100 =

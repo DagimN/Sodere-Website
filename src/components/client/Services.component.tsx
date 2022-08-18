@@ -4,8 +4,8 @@ import React from "react";
 import ServiceHeroContainer from "./ServiceHeroContainer.component";
 
 //Images
-import image1 from '../images/2.jpg';
-import image2 from '../images/3.jpg';
+import image1 from "../../images/2.jpg";
+import image2 from "../../images/3.jpg";
 
 const Services = () => {
   return (

@@ -1,13 +1,13 @@
 import React from "react";
 
 //Components
-import Navbar from "./components/Navbar.component";
-import ContentSlider from "./components/ContentSlider.component";
-import Rooms from "./components/Rooms.component";
-import Services from "./components/Services.component";
-import Reviews from "./components/Reviews.component";
-import Booking from "./components/Booking.component";
-import Footer from "./components/Footer.component";
+import Navbar from "../components/client/Navbar.component";
+import ContentSlider from "../components/client/ContentSlider.component";
+import Rooms from "../components/client/Rooms.component";
+import Services from "../components/client/Services.component";
+import Reviews from "../components/client/Reviews.component";
+import Booking from "../components/client/Booking.component";
+import Footer from "../components/client/Footer.component";
 
 //Icons 
 

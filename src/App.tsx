@@ -1,13 +1,20 @@
 import React from 'react';
+import { BrowserRouter, Route, Routes } from "react-router-dom";
 
 //ROUTES
-import FrontPage from './FrontPage';
+import FrontPage from './routes/FrontPage';
+import AdminPage from './routes/AdminPage';
 
 function App() {
   return (
-    <>
-      <FrontPage />
-    </>
+    <React.StrictMode>
+      <BrowserRouter>
+        <Routes>
+          <Route path="/" element={<FrontPage />} />
+          <Route path="/:name/admin" element={<AdminPage />} />
+        </Routes>
+      </BrowserRouter>
+    </React.StrictMode>
   );
 }
 

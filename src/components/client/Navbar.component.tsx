@@ -1,7 +1,7 @@
 import React,{useState} from "react";
 
 //Images
-import logo from "../images/Logo2.png";
+import logo from "../../images/Logo2.png";
 
 //Components
 import RegionInfo from "./RegionInfo.component";

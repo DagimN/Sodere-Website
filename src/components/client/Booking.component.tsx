@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import { submitBookingForm } from "../utils/submitBookingForm";
+import { submitBookingForm } from "../../utils/submitBookingForm";
 
 //Icons
 import { TiTick } from "react-icons/ti";

@@ -1,8 +1,8 @@
 import React, { useState } from 'react';
 
 //Hooks
-import useWeather from '../hooks/useWeather';
-import useCurrency from '../hooks/useCurrency';
+import useWeather from '../../hooks/useWeather';
+import useCurrency from '../../hooks/useCurrency';
 
 const RegionInfo = ({visibility, activatePopup}:{visibility:string, activatePopup:(value:string)=>void}) => {
   const weatherData = useWeather();

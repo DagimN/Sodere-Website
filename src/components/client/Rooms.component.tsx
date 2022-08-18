@@ -1,11 +1,11 @@
 import React, { useState, useEffect } from "react";
 
 //Images
-import room1 from "../images/1.jpg";
-import room2 from "../images/5.jpg";
-import room3 from "../images/6.jpg";
-import room4 from "../images/7.jpg";
-import room5 from "../images/9.jpg";
+import room1 from "../../images/1.jpg";
+import room2 from "../../images/5.jpg";
+import room3 from "../../images/6.jpg";
+import room4 from "../../images/7.jpg";
+import room5 from "../../images/9.jpg";
 
 //Icons
 import { FaBed } from "react-icons/fa";
@@ -22,7 +22,7 @@ const Rooms = () => {
       bed: "King Sized Bed",
       price: "1500.00 ETB",
       duration: "Per Day",
-      people: "For 2 People",
+      people: "Per Person",
       image: room1,
     },
     {
@@ -30,7 +30,7 @@ const Rooms = () => {
       bed: "King Sized Bed",
       price: "2000.00 ETB",
       duration: "Per Day",
-      people: "For 2 People",
+      people: "Per Person",
       image: room2,
     },
     {
@@ -38,7 +38,7 @@ const Rooms = () => {
       bed: "King Sized Bed",
       price: "2500.00 ETB",
       duration: "Per Day",
-      people: "For 2 People",
+      people: "Per Person",
       image: room3,
     },
     {
@@ -46,7 +46,7 @@ const Rooms = () => {
       bed: "King Sized Bed",
       price: "3000.00 ETB",
       duration: "Per Day",
-      people: "For 2 People",
+      people: "Per Person",
       image: room4,
     },
     {
@@ -54,7 +54,7 @@ const Rooms = () => {
       bed: "King Sized Bed",
       price: "4000.00 ETB",
       duration: "Per Day",
-      people: "For 2 People",
+      people: "Per Person",
       image: room5,
     },
   ];
