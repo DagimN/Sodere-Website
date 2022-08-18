@@ -1,5 +1,5 @@
-import React, {useState} from "react";
-import {submitCommentForm} from "../utils/submitCommentForm";
+import React, { useState } from "react";
+import { submitCommentForm } from "../utils/submitCommentForm";
 
 //Images
 import logo from "../images/Logo2.png";
@@ -7,9 +7,10 @@ import logo from "../images/Logo2.png";
 //Icons
 import { FaBullhorn } from "react-icons/fa";
 //import {IoIosBookmarks} from "react-icons/io";
-import {TiTick} from "react-icons/ti";
-import { PuffLoader } from "react-spinners"; 
-import {VscError} from "react-icons/vsc";
+import { TiTick } from "react-icons/ti";
+import { PuffLoader } from "react-spinners";
+import { VscError } from "react-icons/vsc";
+import { BsFacebook } from "react-icons/bs";
 
 const Footer = () => {
   let [customerName, setCustomerName] = useState<string>("");
@@ -72,22 +73,30 @@ const Footer = () => {
               <IoIosBookmarks size={60} className="mr-6 mt-1" color="#252525" />
             </div> */}
 
-            <div className="bg-[#363636] rounded-xl p-3 w-full flex justify-between">
-              <div>
-                <p className="text-[#727272]">Marketing Office</p>
+            <div className="bg-[#363636] rounded-xl p-3 w-full grid justify-center justify-items-center">
+              <FaBullhorn size={60} className="mr-6" color="#252525" />
+
+              <div className="my-3">
                 <p>+251115573594</p>
+                <p>+251911508734</p>
+
                 {/* //TODO: Create email domain for website */}
                 <p>info@sodere.com</p>
               </div>
 
-              <FaBullhorn size={60} className="mr-6" color="#252525" />
+              <a
+                href="https://www.facebook.com/profile.php?id=100083357041873"
+                className="mt-4 relative right-3"
+              >
+                <BsFacebook size={35} color="#252525" />
+              </a>
             </div>
           </div>
         </article>
       </article>
 
       <article className="grid justify-items-center lg:w-[250px] mr-7">
-        <h1 className="text-3xl text-white my-3 Lg:h-[0px]">Quick Link</h1>
+        <h1 className="text-3xl text-white my-3 lg:h-[0px]">Quick Link</h1>
         <div className="grid lg:ml-0 lg:gap-0 justify-items-center">
           <div className="lg:grid lg:gap-0 flex justify-items-center gap-[17%]">
             <a href="/" className="text-[#727272] my-5">
@@ -121,6 +130,9 @@ const Footer = () => {
       >
         <h1 className="text-3xl text-[#FDBE34] my-3 mx-5">Any Comments?</h1>
         <form
+          onInvalid={() => {
+            setSubmitState(0);
+          }}
           onSubmit={(e) =>
             submitCommentForm(e, setSubmitState, {
               customerName,
@@ -135,6 +147,7 @@ const Footer = () => {
             name="name"
             placeholder="Your Name"
             className="mx-5 rounded-md p-3 my-3"
+            required
             onChange={(e) => {
               setCustomerName(e.target.value);
             }}
@@ -144,6 +157,7 @@ const Footer = () => {
             name="email"
             placeholder="Your Email"
             className="mx-5 rounded-md p-3 my-3"
+            required
             onChange={(e) => {
               setCustomerEmail(e.target.value);
             }}
@@ -154,6 +168,7 @@ const Footer = () => {
             rows={5}
             placeholder="Write Message"
             className="mx-5 rounded-md p-3 my-3 resize-none"
+            required
             onChange={(e) => {
               setCustomerMessage(e.target.value);
             }}
