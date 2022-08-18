@@ -20,7 +20,7 @@ const Rooms = () => {
     {
       name: "Standard",
       bed: "King Sized Bed",
-      price: "5000.00 ETB",
+      price: "1500.00 ETB",
       duration: "Per Day",
       people: "For 2 People",
       image: room1,
@@ -28,7 +28,7 @@ const Rooms = () => {
     {
       name: "Deluxe",
       bed: "King Sized Bed",
-      price: "5000.00 ETB",
+      price: "2000.00 ETB",
       duration: "Per Day",
       people: "For 2 People",
       image: room2,
@@ -36,7 +36,7 @@ const Rooms = () => {
     {
       name: "Twins",
       bed: "King Sized Bed",
-      price: "5000.00 ETB",
+      price: "2500.00 ETB",
       duration: "Per Day",
       people: "For 2 People",
       image: room3,
@@ -44,7 +44,7 @@ const Rooms = () => {
     {
       name: "Suite",
       bed: "King Sized Bed",
-      price: "5000.00 ETB",
+      price: "3000.00 ETB",
       duration: "Per Day",
       people: "For 2 People",
       image: room4,
@@ -52,7 +52,7 @@ const Rooms = () => {
     {
       name: "Royal Suite",
       bed: "King Sized Bed",
-      price: "5000.00 ETB",
+      price: "4000.00 ETB",
       duration: "Per Day",
       people: "For 2 People",
       image: room5,
