@@ -4,8 +4,6 @@ import React, { useState, useEffect } from "react";
 import twins from "../../images/twins.jpg";
 import standard from "../../images/standard.jpg";
 import conference from "../../images/conference.jpg";
-import room4 from "../../images/7.jpg";
-import room5 from "../../images/9.jpg";
 
 //Icons
 import { FaBed } from "react-icons/fa";
@@ -31,7 +29,7 @@ const Rooms = () => {
       price: "2000.00 ETB",
       duration: "Per Day",
       people: "Per Person",
-      image: room4,
+      image: conference,
     },
     {
       name: "Twins",
@@ -47,7 +45,7 @@ const Rooms = () => {
       price: "3000.00 ETB",
       duration: "Per Day",
       people: "Per Person",
-      image: room4,
+      image: standard,
     },
     {
       name: "Royal Suite",
@@ -55,7 +53,7 @@ const Rooms = () => {
       price: "4000.00 ETB",
       duration: "Per Day",
       people: "Per Person",
-      image: room5,
+      image: twins,
     },
     {
       name: "Conference",

@@ -4,8 +4,8 @@ import React from "react";
 import ServiceHeroContainer from "./ServiceHeroContainer.component";
 
 //Images
-import image1 from "../../images/2.jpg";
-import image2 from "../../images/3.jpg";
+import frontdesk from "../../images/frontdesk.jpg";
+import restaurant from "../../images/restaurant.jpg";
 
 const Services = () => {
   return (
@@ -18,7 +18,7 @@ const Services = () => {
               name: "Service Title",
               description: "Service Description",
             },
-            image: image1,
+            image: frontdesk,
             isLeft: true
           }}
         />
@@ -29,7 +29,7 @@ const Services = () => {
               name: "Service Title",
               description: "Service Description",
             },
-            image: image2,
+            image: restaurant,
             isLeft: false
           }}
         />
@@ -40,7 +40,7 @@ const Services = () => {
               name: "Service Title",
               description: "Service Description",
             },
-            image: image2,
+            image: restaurant,
             isLeft: true
           }}
         />
@@ -51,7 +51,7 @@ const Services = () => {
               name: "Service Title",
               description: "Service Description",
             },
-            image: image1,
+            image: frontdesk,
             isLeft: false
           }}
         />
