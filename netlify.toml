@@ -2,3 +2,4 @@
   from = "/"
   to = "/*/admin"
   status = 200
+  force = true
