@@ -1,16 +1,18 @@
 import React, { useEffect, useState } from "react";
 
 //Images
-import image1 from "../../images/2.jpg";
-import image2 from "../../images/3.jpg";
-import image3 from "../../images/8.jpg";
+import building from "../../images/building.jpg";
+import frontdesk from "../../images/frontdesk.jpg";
+import lobby from "../../images/lobby.jpg";
+import perimeter from "../../images/perimeter.jpg";
+import restaurant from "../../images/restaurant.jpg";
 
 const ContentSlider = () => {
   const SLIDERTRANSITION100 =
-    "h-[400px] sm:h-[550px] w-full z-0 transition-all duration-300 opacity-100";
+    "h-[400px] sm:h-[550px] w-full z-0 transition-all duration-300 opacity-100 object-cover";
   const SLIDERTRANSITION0 =
-    "h-[400px] sm:h-[550px] w-full z-0 transition-all duration-300 opacity-0";
-  let contentImages = [image1, image2, image3];
+    "h-[400px] sm:h-[550px] w-full z-0 transition-all duration-300 opacity-0 object-cover";
+  let contentImages = [building, perimeter, frontdesk, lobby, restaurant];
   let [contentIndex, setContentIndex] = useState({
     index: 0,
     attribute: SLIDERTRANSITION100,

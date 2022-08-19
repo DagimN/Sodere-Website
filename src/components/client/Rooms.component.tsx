@@ -1,9 +1,9 @@
 import React, { useState, useEffect } from "react";
 
 //Images
-import room1 from "../../images/1.jpg";
-import room2 from "../../images/5.jpg";
-import room3 from "../../images/6.jpg";
+import twins from "../../images/twins.jpg";
+import standard from "../../images/standard.jpg";
+import conference from "../../images/conference.jpg";
 import room4 from "../../images/7.jpg";
 import room5 from "../../images/9.jpg";
 
@@ -23,7 +23,7 @@ const Rooms = () => {
       price: "1500.00 ETB",
       duration: "Per Day",
       people: "Per Person",
-      image: room1,
+      image: standard,
     },
     {
       name: "Deluxe",
@@ -31,7 +31,7 @@ const Rooms = () => {
       price: "2000.00 ETB",
       duration: "Per Day",
       people: "Per Person",
-      image: room2,
+      image: room4,
     },
     {
       name: "Twins",
@@ -39,7 +39,7 @@ const Rooms = () => {
       price: "2500.00 ETB",
       duration: "Per Day",
       people: "Per Person",
-      image: room3,
+      image: twins,
     },
     {
       name: "Suite",
@@ -63,7 +63,7 @@ const Rooms = () => {
       price: "4000.00 ETB",
       duration: "Per Day",
       people: "From 10 to 20",
-      image: room5,
+      image: conference,
     },
   ];
   let [roomIndex, setRoomIndex] = useState({
