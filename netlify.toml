@@ -1,7 +1,7 @@
 [[redirects]]
   from = "/"
-  to = "/:name/admin"
+  to = "/admin"
   status = 301
   force = false
-  query = {path = ":path"}
+  query = {path = ":name"}
   conditions = {Language = ["en"], Country = ["US"], Role = ["admin"]}
