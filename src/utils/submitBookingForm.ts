@@ -22,7 +22,7 @@ export async function submitBookingForm(
   event.preventDefault();
 
   try {
-    let res = await fetch("http://localhost:5001/book", {
+    let res = await fetch("http://sodereresorthotelau.com/api/book", {
       method: "POST",
       mode: "cors",
       body: JSON.stringify({
@@ -33,7 +33,11 @@ export async function submitBookingForm(
         rooms: customerRooms,
         other: customerOther,
       }),
-      headers: { "Content-Type": "application/json" },
+      headers: {
+        "Accept": "*/*",
+        "Content-Type": "application/json",
+        "Origin": "http://sodereresorthotelau.com",
+      },
     });
 
     if (res.status === 200) {

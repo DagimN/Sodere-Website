@@ -1,15 +1,19 @@
-const dotenv = require("dotenv");
 const path = require("path");
 
-dotenv.config({
-  path: __dirname + `\\${process.env.NODE_ENV}.env`,
-});
+if(process.env.NODE_ENV === 'development'){
+  const dotenv = require("dotenv");
+  dotenv.config({
+    path: __dirname + `\\${process.env.NODE_ENV}.env`,
+  });
+}
+  
 
 module.exports = {
   NODE_ENV: process.env.NODE_ENV,
-  USERNAME: process.env.CLIENTNAME,
+  HOST: process.env.HOST, 
+  USER: process.env.USER,
   PASSWORD: process.env.PASSWORD,
-  PORT: process.env.PORT,
   SECRET: process.env.SECRET,
   IV: process.env.IV,
+  DATABASE: process.env.DATABASE
 };
