@@ -11,7 +11,7 @@ function App() {
       <BrowserRouter>
         <Routes>
           <Route path="/" element={<FrontPage />} />
-          <Route path="/:name/admin" element={<AdminPage />} />
+          <Route path="/admin/:name" element={<AdminPage />} />
         </Routes>
       </BrowserRouter>
     </React.StrictMode>
