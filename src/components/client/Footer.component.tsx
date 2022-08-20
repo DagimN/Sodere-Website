@@ -11,6 +11,7 @@ import { TiTick } from "react-icons/ti";
 import { PuffLoader } from "react-spinners";
 import { VscError } from "react-icons/vsc";
 import { BsFacebook } from "react-icons/bs";
+import { HiLocationMarker } from "react-icons/hi";
 
 const Footer = () => {
   let [customerName, setCustomerName] = useState<string>("");
@@ -74,29 +75,33 @@ const Footer = () => {
             </div> */}
 
             <div className="bg-[#363636] rounded-xl p-3 w-full grid justify-center justify-items-center">
-              <FaBullhorn size={60} className="mr-6" color="#252525" />
+              <FaBullhorn size={60} className="mr-4" color="#252525" />
 
-              <div>
+              <div className="grid justify-items-center">
                 <div className="my-3">
-                  <p>For Reservations</p>
-                  <p>+251115573594</p>
+                  <p className="text-[#777777]">For Reservations</p>
+                  <p className="text-[#777777]">+251115573594</p>
                 </div>
 
                 <div className="my-3">
-                  <p>Hotel Manager</p>
-                  <p>+251911508734</p>
+                  <p className="text-[#777777]">Hotel Manager</p>
+                  <p className="text-[#777777]">+251911508734</p>
                 </div>
 
-                {/* //TODO: Create email domain for website */}
-                <p>info@sodere.com</p>
+                <p className="text-[#777777] w-10 relative right-20">
+                  info@sodereresorthotelau.com
+                </p>
               </div>
 
-              <a
-                href="https://www.facebook.com/profile.php?id=100083357041873"
-                className="mt-4 relative right-3"
-              >
-                <BsFacebook size={35} color="#252525" />
-              </a>
+              <div className="flex mt-3 gap-5">
+                <a href="https://www.facebook.com/profile.php?id=100083357041873">
+                  <BsFacebook size={35} color="#777777" />
+                </a>
+
+                <a href="https://www.google.com/maps/place/Sodere+Hotel+-+AU/@9.0028208,38.7425017,19z/data=!4m8!3m7!1s0x164b85ea930e6d93:0x9d675416a3941e31!5m2!4m1!1i2!8m2!3d9.0028386!4d38.7424067!5m1!1e4">
+                  <HiLocationMarker size={40} color="#777777" />
+                </a>
+              </div>
             </div>
           </div>
         </article>
@@ -120,13 +125,6 @@ const Footer = () => {
           <div className="lg:grid lg:gap-0 flex justify-center gap-[17%]">
             <a href="/" className="text-[#727272] my-5">
               Rooms
-            </a>
-
-            <a
-              href="https://www.google.com/maps/place/Sodere+Resort+Hotel/@8.404191,39.387584,13.95z/data=!4m8!3m7!1s0x164ad9f29d528e33:0x170cf8c5481ecf61!5m2!4m1!1i2!8m2!3d8.4016215!4d39.3934114"
-              className="text-[#727272] my-5"
-            >
-              Location
             </a>
           </div>
         </div>
