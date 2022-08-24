@@ -10,7 +10,7 @@ import Booking from "../components/client/Booking.component";
 import Footer from "../components/client/Footer.component";
 
 //Icons 
-
+//TODO: Add a prompt for admin login
 const FrontPage = () => {
   
   return (
