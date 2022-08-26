@@ -16,6 +16,27 @@ module.exports = async (app) => {
     res.sendStatus(200);
   });
 
+  app.get("/api/reviews", (req, res) => {
+    let reviewQuery = "SELECT * FROM comment";
+
+    try{
+      new Promise(async (resolve, reject) => {
+        let [result] = await db.query(reviewQuery);
+        let json = JSON.stringify(result);
+        resolve(json);
+      }).then((json) => {
+        res.status(200).send(json);
+      }).catch((error)=>{
+        console.log(error);
+        res.status(503).send(error)
+      })
+    }
+    catch(error){
+      console.log(error)
+      res.status(503).send(error);
+    }
+  })
+
   app.post("/api/book/", async (req, res) => {
     let { name, email, phone, type, rooms, other } = req.body;
     let insertQuery = "INSERT INTO booking(name, phone, email, room_type, num_room, additional) " + 
