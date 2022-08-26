@@ -51,10 +51,10 @@ const ServiceHeroContainer = ({service, image, isLeft}:{service:ServiceType, ima
             className="h-[300px] object-cover w-full sm:h-[400px] relative z-0 opacity-60"
           />
           <h1 className="z-10 relative bottom-[250px] text-2xl text-white transition-all duration-300 ease-in group-hover:text-4xl">
-            Service Name
+            {service.name}
           </h1>
           <p className="z-10 relative bottom-[230px] text-md text-white transition-all duration-300 ease-in group-hover:text-2xl">
-            Service Description
+            {service.description}
           </p>
         </div>
 

@@ -128,7 +128,7 @@ const Rooms = () => {
   }, [roomIndex, rooms.length, timeoutIds, tempIndex]);
 
   return (
-    <section className="w-[90%] sm:w-[95%] h-[350px] sm:h-[400px] m-5 rounded-xl bg-black sm:bg-[#45303C] flex">
+    <section id="Rooms" className="w-[90%] sm:w-[95%] h-[350px] sm:h-[400px] m-5 rounded-xl bg-black sm:bg-[#45303C] flex">
       <article className="grid w-2/3 h-[300px] absolute z-10">
         <h1 className="m-5 text-5xl text-[#EB9A3E]">
           {rooms[roomIndex.index].name ?? ""}

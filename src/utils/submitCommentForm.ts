@@ -21,11 +21,9 @@ export  async function submitCommentForm(event: React.FormEvent<HTMLFormElement>
 
         if (res.status === 200) {
             setSubmitState(2);
-            console.log("success");
         }
         else{
             setSubmitState(3);
-            console.log("failure");
         } 
     }
     catch(error){

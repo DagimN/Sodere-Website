@@ -9,13 +9,13 @@ import restaurant from "../../images/restaurant.jpg";
 
 const Services = () => {
   return (
-    <section>
+    <section id="Services">
       <h1 className="flex place-content-center text-3xl my-5">Services</h1>
       <article className="grid grid-cols-2 gap-y-4 gap-x-2">
         <ServiceHeroContainer
           {...{
             service: {
-              name: "Service Title",
+              name: "Guest Room",
               description: "Service Description",
             },
             image: frontdesk,
@@ -26,7 +26,7 @@ const Services = () => {
         <ServiceHeroContainer
           {...{
             service: {
-              name: "Service Title",
+              name: "Restaurant",
               description: "Service Description",
             },
             image: restaurant,
@@ -37,7 +37,7 @@ const Services = () => {
         <ServiceHeroContainer
           {...{
             service: {
-              name: "Service Title",
+              name: "Bar",
               description: "Service Description",
             },
             image: restaurant,
@@ -48,7 +48,7 @@ const Services = () => {
         <ServiceHeroContainer
           {...{
             service: {
-              name: "Service Title",
+              name: "Conference Room",
               description: "Service Description",
             },
             image: frontdesk,

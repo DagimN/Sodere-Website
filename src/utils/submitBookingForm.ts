@@ -40,13 +40,10 @@ export async function submitBookingForm(
       },
     });
 
-    if (res.status === 200) {
+    if (res.status === 200)
       setSubmitState(2);
-      console.log("success");
-    } else {
+    else 
       setSubmitState(3);
-      console.log("failure");
-    }
   } catch (error) {
     console.error(error);
     setSubmitState(3);

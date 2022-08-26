@@ -21,19 +21,20 @@ const FrontPage = () => {
 
       <Booking />
 
-      <section className="w-full h-[500px] bg-[#D9D9DA] grid justify-items-center place-content-start sm:pt-[150px] pt-[50px] sm:h-[600px]">
+      <section
+        id="AboutUs"
+        className="w-full h-[500px] bg-[#D9D9DA] grid justify-items-center place-content-start sm:pt-[150px] pt-[50px] sm:h-[600px]"
+      >
         <h1 className="text-5xl"> About Us </h1>
         <p className="w-[80%] mt-10 text-center">
-          Lorem ipsum dolor sit amet consectetur adipisicing elit. Consequatur
-          delectus blanditiis explicabo similique dolorum repudiandae ipsa modi
-          excepturi laborum deleniti nemo assumenda eligendi a nostrum fugit
-          dolores rerum, aliquam vel. Lorem ipsum dolor sit amet consectetur
-          adipisicing elit. Sed optio magnam cum, ducimus exercitationem minus
-          quia reiciendis architecto iure, ipsum impedit inventore eos sunt
-          facere, amet non adipisci culpa delectus! Lorem ipsum dolor sit amet
-          consectetur adipisicing elit. Blanditiis in totam ducimus culpa ea,
-          vero inventore cupiditate nisi velit obcaecati, debitis voluptatibus
-          autem quia repudiandae aperiam mollitia impedit soluta. Excepturi.
+          • 3.5 – Star Hotel <br /> 
+          • located at kirkos sub city, in front of
+          Africa union HQ, Addis Ababa.<br /> 
+          • 38 Guest Rooms. Security & Safety<br /> 
+          • We are located in the main gate of Africa union HQ, 2 Minutes’ walk <br />
+          • High quality service and feeling secured physically due to our
+          strategic location • our building equipped with Emergency exist and
+          Fire extinguishers
         </p>
       </section>
 

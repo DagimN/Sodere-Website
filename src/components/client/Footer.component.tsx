@@ -114,16 +114,16 @@ const Footer = () => {
             <a href="/" className="text-[#727272] my-5">
               Home
             </a>
-            <a href="/" className="text-[#727272] my-5 w-40 lg:w-full">
+            <a href="#AboutUs" className="text-[#727272] my-5 w-40 lg:w-full">
               About Us
             </a>
-            <a href="/" className="text-[#727272] my-5">
+            <a href="#Services" className="text-[#727272] my-5">
               Services
             </a>
           </div>
 
           <div className="lg:grid lg:gap-0 flex justify-center justify-items-center gap-[17%]">
-            <a href="/" className="text-[#727272] my-5">
+            <a href="#Rooms" className="text-[#727272] my-5">
               Rooms
             </a>
 

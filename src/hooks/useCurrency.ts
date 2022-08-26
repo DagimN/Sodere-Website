@@ -6,7 +6,7 @@ const baseUrl = "https://api.apilayer.com/currency_data/live";
     USD: number;
     ETB: number;
   }>();
-
+  //TODO: Fix the currency API
   useEffect(() => {  
     let url = `${baseUrl}?source=USD&currencies=ETB&apikey=${process.env.REACT_APP_CURRENCY_APIKEY}`;
     getCurrencyData(url, currencyData).then((data) => {

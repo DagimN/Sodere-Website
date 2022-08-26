@@ -26,14 +26,6 @@ const Booking = () => {
       setWindowInnerWidth(window.innerWidth);
   });
 
-  console.log(
-    `${new Date().getFullYear().toString()}-${
-      new Date().getMonth() / 10 > 1
-        ? new Date().getMonth() + 1
-        : "0" + (new Date().getMonth() + 1)
-    }-${new Date().getDate().toString()}`
-  );
-
   if (submitState === 0) {
     innerSubmitButtonComponent = <h1>Make Reservation</h1>;
   } else if (submitState === 1) {

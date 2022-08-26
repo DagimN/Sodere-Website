@@ -32,10 +32,10 @@ const Navbar = () => {
             <AiFillHome color="#52BBCE" size={25} className="relative top-7" />
             <div className="bg-[#52BBCE] h-[5px] w-7 relative bottom-3 right-[1px]"></div>
           </a>
-          <a href="/" className="mx-5 hidden md:inline">
+          <a href="#Rooms" className="mx-5 hidden md:inline">
             Rooms
           </a>
-          <a href="/" className="mx-5 hidden md:inline">
+          <a href="#Services" className="mx-5 hidden md:inline">
             Services
           </a>
           <a href="/" className="mx-5 hidden md:inline">

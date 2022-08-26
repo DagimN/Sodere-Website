@@ -1,16 +1,45 @@
-import React from 'react';
+import React, {useState} from "react";
+import getReviews from '../../utils/getReviews';
 
 //Icons
-import { FaRegUser } from 'react-icons/fa';
+import { FaRegUser } from "react-icons/fa";
 
 const Reviews = () => {
-  let users = [" ", " ", " "];
+  let users:Array<{name:string, review:string}> = [
+    {
+      name: "African Union Community",
+      review:
+        "Lorem ipsum dolor sit amet consectetur adipisicing elit. Dolor perferendis accusamus fugiat. Quis perferendis vel ad possimus dquibusdam error similique minima maiores est repudiandae,",
+    },
+    {
+      name: "Expats",
+      review:
+        "Lorem ipsum dolor sit amet consectetur adipisicing elit. Dolor perferendis accusamus fugiat. Quis perferendis vel ad possimus dquibusdam error similique minima maiores est repudiandae,",
+    },
+    {
+      name: "Diplomatic Community",
+      review:
+        "Lorem ipsum dolor sit amet consectetur adipisicing elit. Dolor perferendis accusamus fugiat. Quis perferendis vel ad possimus dquibusdam error similique minima maiores est repudiandae,",
+    }
+  ];
+
+  let [userReviews, setUserReviews] =
+    useState<Array<{ name: string; review: string }>>(users);
+
+  getReviews().then((value) => {
+    let temp = [];
+    
+    for(let i = 0; i < value.length; i++)
+      temp.push({ name: value[i].name, review: value[i].message });
+
+    setUserReviews([...userReviews, ...temp]);
+  })
 
   return (
     <>
-      <h1 className='flex justify-center text-xl mt-3'> FAQs & Reviews </h1>
+      <h1 className="flex justify-center text-xl mt-3"> FAQs & Reviews </h1>
       <section className="h-[300px] w-full flex overflow overflow-clip">
-        {users.map((value, index) => {
+        {userReviews.map((value, index) => {
           return (
             <article
               key={index}
@@ -19,13 +48,11 @@ const Reviews = () => {
               <div className="mx-5 lg:flex grid justify-items-center mt-5">
                 <FaRegUser size={45} />
 
-                <h1 className="text-4xl lg:mx-5 my-1">Client Name</h1>
+                <h1 className="text-4xl lg:mx-5 my-1">{value.name}</h1>
               </div>
               <hr className="w-[90%] ml-5" />
               <p className="mx-5 overflow-y-scroll my-2">
-                Lorem ipsum dolor sit amet consectetur adipisicing elit. Dolor
-                perferendis accusamus fugiat. Quis perferendis vel ad possimus
-                quibusdam error similique minima maiores est repudiandae,
+                {value.review}
               </p>
             </article>
           );
@@ -33,6 +60,6 @@ const Reviews = () => {
       </section>
     </>
   );
-}
+};
 
 export default Reviews;
