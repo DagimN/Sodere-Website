@@ -29,8 +29,20 @@ const Reviews = () => {
   getReviews().then((value) => {
     let temp = [];
     
-    for(let i = 0; i < value.length; i++)
-      temp.push({ name: value[i].name, review: value[i].message });
+    for(let i = 0; i < value.length; i++){
+      let review:{name:string, review:string} = { name: value[i].name, review: value[i].message };
+      let exists = false;
+
+      for(let j = 0; j < userReviews.length; j++){
+        if(value[i].name === userReviews[j].name && value[i].message === userReviews[j].review){
+          exists = true;
+        }
+      }
+
+      if(!exists)
+        temp.push(review);
+    }
+      
 
     setUserReviews([...userReviews, ...temp]);
   })
