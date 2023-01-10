@@ -13,7 +13,7 @@ const Services = () => {
   return (
     <section id="Services">
       <h1 className="flex place-content-center text-3xl my-5">Services</h1>
-      //TODO: Add content elements for each services
+      {/* //TODO: Add content elements for each services */}
       <article className="grid grid-cols-2 gap-y-4 gap-x-2">
         <ServiceHeroContainer
           {...{
