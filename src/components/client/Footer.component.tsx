@@ -53,10 +53,11 @@ const Footer = () => {
               Sodere Resort Hotel SC
             </h1>
             <p className="text-[#727272]">
-              Lorem ipsum dolor sit, amet consectetur adipisicing elit.
-              Doloremque eligendi veniam dolore rerum quis officia expedita
-              neque voluptatem. Mollitia sit ipsam neque facilis quos harum nemo
-              debitis aut labore deserunt.
+              Whether you're staying a few days, a few weeks or longer, Sodere
+              Resort Hotel gives you the opportunity to make the most of your
+              time. Located at Kirkos Sub-City • In front of Africa Union HQ,
+              Addis Ababa We are located in the main gate of Africa union HQ,
+              just a two minute walk
             </p>
           </div>
         </article>
@@ -64,16 +65,6 @@ const Footer = () => {
         <article className="w-full lg:w-1/3">
           <h1 className="text-3xl text-white my-3">Contact Us</h1>
           <div className="lg:grid md:flex grid gap-5">
-            {/* <div className="bg-[#363636] rounded-xl p-3 w-full flex justify-between">
-              <div>
-                <p className="text-[#727272]">Reservations</p>
-                <p>+251221113400</p>
-                <p>+251937868196</p>
-              </div>
-
-              <IoIosBookmarks size={60} className="mr-6 mt-1" color="#252525" />
-            </div> */}
-
             <div className="bg-[#363636] rounded-xl p-3 w-full grid justify-center justify-items-center">
               <FaBullhorn size={60} className="mr-4" color="#252525" />
 
@@ -107,7 +98,7 @@ const Footer = () => {
         </article>
       </article>
 
-      <article className="grid justify-items-center lg:w-[250px] mr-7">
+      <article className="grid justify-items-center lg:w-[300px] mr-7">
         <h1 className="text-3xl text-white my-3 lg:h-[0px]">Quick Link</h1>
         <div className="grid lg:ml-0 lg:gap-0 justify-items-center">
           <div className="lg:grid lg:gap-0 flex justify-items-center gap-[17%]">
@@ -127,10 +118,7 @@ const Footer = () => {
               Rooms
             </a>
 
-            <a
-              href="https://github.com/DagimN"
-              className="text-[#727272] my-5"
-            >
+            <a href="https://github.com/DagimN" className="text-[#727272] my-5">
               Developer
             </a>
           </div>

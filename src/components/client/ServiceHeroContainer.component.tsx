@@ -2,7 +2,8 @@ import React from 'react';
 
 type ServiceType = {
   name: string,
-  description: string
+  description: string,
+  content: any
 };
 
 const ServiceHeroContainer = ({service, image, isLeft}:{service:ServiceType, image:string, isLeft:boolean}) => {
@@ -23,6 +24,8 @@ const ServiceHeroContainer = ({service, image, isLeft}:{service:ServiceType, ima
         <div className="float-right">
           <form action="">
             <input type="button" value="Close" />
+
+            {service.content}
           </form>
         </div>
       </div>
@@ -53,7 +56,7 @@ const ServiceHeroContainer = ({service, image, isLeft}:{service:ServiceType, ima
           <h1 className="z-10 relative bottom-[250px] text-2xl text-white transition-all duration-300 ease-in group-hover:text-4xl">
             {service.name}
           </h1>
-          <p className="z-10 relative bottom-[230px] text-md text-white transition-all duration-300 ease-in group-hover:text-2xl">
+          <p className="z-10 relative bottom-[230px] text-md text-white transition-all duration-300 ease-in group-hover:text-lg">
             {service.description}
           </p>
         </div>

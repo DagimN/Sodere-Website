@@ -57,10 +57,10 @@ const Navbar = () => {
           >
             <RegionInfo visibility="grid" activatePopup={activateNavBarPopUp}/>
 
-            <a href="/" className="mx-5">
+            <a href="#Rooms" className="mx-5">
               Rooms
             </a>
-            <a href="/" className="mx-5">
+            <a href="#Services" className="mx-5">
               Services
             </a>
             <a href="/" className="mx-5">

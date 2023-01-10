@@ -143,6 +143,7 @@ const Booking = () => {
                 <select
                   name="type"
                   className="rounded-md p-1"
+                  defaultValue='Standard'
                   onChange={(e) => {
                     setCustomerType(e.target.value);
                   }}

@@ -20,7 +20,7 @@ export async function submitBookingForm(
   }
 ) {
   event.preventDefault();
-
+  //TODO: Validate values
   try {
     let res = await fetch("http://sodereresorthotelau.com/api/book", {
       method: "POST",

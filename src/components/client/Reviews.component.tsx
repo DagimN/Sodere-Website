@@ -5,22 +5,26 @@ import getReviews from '../../utils/getReviews';
 import { FaRegUser } from "react-icons/fa";
 
 const Reviews = () => {
-  let users:Array<{name:string, review:string}> = [
+  let users: Array<{ name: string; review: string }> = [
     {
       name: "African Union Community",
       review:
-        "Lorem ipsum dolor sit amet consectetur adipisicing elit. Dolor perferendis accusamus fugiat. Quis perferendis vel ad possimus dquibusdam error similique minima maiores est repudiandae,",
+        "Helpful and friendly staff. Proper selection of food is saved both dinner and breakfast." +
+        " I was there as a transit passenger and spent just a night. Staff actually wakes you up in time for your scheduled flight.",
     },
     {
       name: "Expats",
       review:
-        "Lorem ipsum dolor sit amet consectetur adipisicing elit. Dolor perferendis accusamus fugiat. Quis perferendis vel ad possimus dquibusdam error similique minima maiores est repudiandae,",
+        "Great rooms, staff, food, wifi. I had great time here. The staff was very kind. All the meals are great." + 
+        " They have a really good wifi. Feels like europe not like Ethiopia. The room was very big, nice tv, i enjoyed!",
     },
     {
       name: "Diplomatic Community",
       review:
-        "Lorem ipsum dolor sit amet consectetur adipisicing elit. Dolor perferendis accusamus fugiat. Quis perferendis vel ad possimus dquibusdam error similique minima maiores est repudiandae,",
-    }
+        "We stopped over at this hotel after landing at Addis Ababa with a 12 hour wait for the connecting flight." + 
+        " 15 minutes away from the airport their mini bus takes you to the hotel, simple check in and included breakfast and lunch. A simple " +
+        "double room with a basic shower/bath room. The customer service was really good, very helpful.",
+    },
   ];
 
   let [userReviews, setUserReviews] =
@@ -29,7 +33,7 @@ const Reviews = () => {
   getReviews().then((value) => {
     let temp = [];
     
-    for(let i = 0; i < value.length; i++){
+    for(let i = 0; i < (value.length - 3) % 5; i++){
       let review:{name:string, review:string} = { name: value[i].name, review: value[i].message };
       let exists = false;
 
@@ -63,7 +67,7 @@ const Reviews = () => {
                 <h1 className="text-4xl lg:mx-5 my-1">{value.name}</h1>
               </div>
               <hr className="w-[90%] ml-5" />
-              <p className="mx-5 overflow-y-scroll my-2">
+              <p className="mx-5 overflow-y-scroll truncate whitespace-normal my-2">
                 {value.review}
               </p>
             </article>
