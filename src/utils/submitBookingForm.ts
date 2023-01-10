@@ -1,4 +1,5 @@
 import { Dispatch, SetStateAction } from "react";
+import fetchTimeout from './fetchTimeout';
 
 export async function submitBookingForm(
   event: React.FormEvent<HTMLFormElement>,
@@ -21,8 +22,9 @@ export async function submitBookingForm(
 ) {
   event.preventDefault();
   //TODO: Validate values
+  //TODO: Add timeout for submission (test)
   try {
-    let res = await fetch("http://sodereresorthotelau.com/api/book", {
+    let res = await fetchTimeout("http://sodereresorthotelau.com/api/book", {
       method: "POST",
       mode: "cors",
       body: JSON.stringify({
@@ -34,18 +36,16 @@ export async function submitBookingForm(
         other: customerOther,
       }),
       headers: {
-        "Accept": "*/*",
+        Accept: "*/*",
         "Content-Type": "application/json",
-        "Origin": "http://sodereresorthotelau.com",
+        Origin: "http://sodereresorthotelau.com",
       },
     });
-
-    if (res.status === 200)
-      setSubmitState(2);
-    else 
-      setSubmitState(3);
+    
+    if (res.status === 200) setSubmitState(2);
+    else setSubmitState(3);
   } catch (error) {
     console.error(error);
     setSubmitState(3);
-  } 
+  }
 }

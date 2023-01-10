@@ -1,4 +1,5 @@
 import React from 'react';
+import {AiOutlineCloseCircle} from 'react-icons/ai';
 
 type ServiceType = {
   name: string,
@@ -22,19 +23,19 @@ const ServiceHeroContainer = ({service, image, isLeft}:{service:ServiceType, ima
         />
 
         <div className="float-right">
-          <form action="">
-            <input type="button" value="Close" />
-
-            {service.content}
-          </form>
+          <a href="#Services" className="relative top-5 right-5">
+            <AiOutlineCloseCircle color="#45303C" className="w-7 h-7" />
+          </a>
+          {/* //TODO: Add content */}
+          {/* {service.content} */}
         </div>
       </div>
     ) : (
       <div className="flex relative right-[33%]">
         <div className="invisible group-focus:visible relative group-focus:left-[33.3%]">
-          <form action="">
-            <input type="button" value="Close" />
-          </form>
+          <a href="#Services" className="relative top-5 left-5">
+            <AiOutlineCloseCircle color="#45303C" className="w-7 h-7" />
+          </a>
         </div>
 
         <img
