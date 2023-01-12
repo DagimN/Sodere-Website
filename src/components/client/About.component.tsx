@@ -5,9 +5,10 @@ import frontdesk from '../../images/frontdesk.jpg';
 import stars from '../../images/stars.png';
 
 //Icons
-import {AiFillSafetyCertificate} from 'react-icons/ai';
+import { AiFillSafetyCertificate, AiOutlineWifi } from "react-icons/ai";
 import {RiServiceFill} from 'react-icons/ri';
 import { FaBed } from "react-icons/fa";
+import {ImAirplane} from "react-icons/im";
 
 const About = () => {
     let [windowInnerWidth, setWindowInnerWidth] = useState(window.innerWidth);
@@ -46,32 +47,52 @@ const About = () => {
           <br />
         </p>
 
-        <div className="flex justify-center">
-          <div className="grid justify-items-center w-1/3 p-5">
-            <FaBed color="#FFD500" size={65} />
-            <p className="text-[11px]">38 Guest Rooms</p>
+        <div>
+          <div className="flex justify-center">
+            <div className="grid justify-items-center w-1/3 p-5">
+              <FaBed color="#FFD500" size={65} />
+              <p className="text-[11px]">38 Guest Rooms</p>
+            </div>
+
+            <div className="grid justify-items-center w-1/3 p-5">
+              <AiFillSafetyCertificate
+                color="#00B000 "
+                size={windowInnerWidth <= 590 ? 35 : 65}
+              />
+              <p className="text-[11px]">
+                Security & Safety • Our building is equipped with emergency
+                exists and fire extinguishers
+              </p>
+            </div>
+
+            <div className="grid justify-items-center w-1/3 p-5">
+              <RiServiceFill
+                color="#CB0000"
+                size={windowInnerWidth <= 590 ? 35 : 65}
+              />
+              <p className="text-[11px]">
+                High quality service and feeling secured physically due to our
+                strategic location
+              </p>
+            </div>
           </div>
 
-          <div className="grid justify-items-center w-1/3 p-5">
-            <AiFillSafetyCertificate
-              color="#00B000 "
-              size={windowInnerWidth <= 590 ? 35 : 65}
-            />
-            <p className="text-[11px]">
-              Security & Safety • Our building is equipped with emergency exists
-              and fire extinguishers
-            </p>
-          </div>
+          <div className="flex justify-center">
+            <div className="grid justify-items-center w-1/3 p-5">
+              <AiOutlineWifi
+                color="indigo"
+                size={windowInnerWidth <= 590 ? 35 : 50}
+              />
+              <p className="text-[11px]">High Speed WiFi Connection</p>
+            </div>
 
-          <div className="grid justify-items-center w-1/3 p-5">
-            <RiServiceFill
-              color="#CB0000"
-              size={windowInnerWidth <= 590 ? 35 : 65}
-            />
-            <p className="text-[11px]">
-              High quality service and feeling secured physically due to our
-              strategic location
-            </p>
+            <div className="grid justify-items-center w-1/3 p-5">
+              <ImAirplane
+                color="grey"
+                size={windowInnerWidth <= 590 ? 35 : 50}
+              />
+              <p className="text-[11px]">Shuttle Service from and to airport</p>
+            </div>
           </div>
         </div>
       </div>

@@ -1,13 +1,14 @@
 import { Dispatch, SetStateAction } from "react";
 import fetchTimeout from './fetchTimeout';
 
-export async function submitBookingForm(
-  event: React.FormEvent<HTMLFormElement>,
+export default async function submitBookingForm(
   setSubmitState: Dispatch<SetStateAction<number>>,
   {
     customerName,
     customerEmail,
     customerPhone,
+    arrivalDate,
+    leavingDate,
     customerType,
     customerRooms,
     customerOther,
@@ -15,15 +16,15 @@ export async function submitBookingForm(
     customerName: string;
     customerEmail: string;
     customerPhone: string;
+    arrivalDate: string,
+    leavingDate: string,
     customerType: string;
     customerRooms: string;
     customerOther: string;
   }
 ) {
-  event.preventDefault();
-  //TODO: Validate values
-  //TODO: Add timeout for submission (test)
   try {
+
     let res = await fetchTimeout("http://sodereresorthotelau.com/api/book", {
       method: "POST",
       mode: "cors",
@@ -31,6 +32,8 @@ export async function submitBookingForm(
         name: customerName,
         email: customerEmail,
         phone: customerPhone,
+        arrival: arrivalDate,
+        departure: leavingDate,
         type: customerType,
         rooms: customerRooms,
         other: customerOther,

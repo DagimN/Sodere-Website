@@ -7,7 +7,7 @@ import useCurrency from '../../hooks/useCurrency';
 const RegionInfo = ({visibility, activatePopup}:{visibility:string, activatePopup:(value:string)=>void}) => {
   const weatherData = useWeather();
   const currencyData = useCurrency();
-  const ETBRATE = 52.21;
+  const ETBRATE = 53.53;
   let [valueETB, setETBValue] = useState(currencyData?.ETB ?? ETBRATE);
     
   return (

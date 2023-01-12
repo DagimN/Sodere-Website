@@ -1,10 +1,14 @@
 import { Dispatch, SetStateAction } from "react";
 import fetchTimeout from "../utils/fetchTimeout";
 
-
-export async function submitCommentForm(event: React.FormEvent<HTMLFormElement>, setSubmitState: Dispatch<SetStateAction<number>>,{customerName, customerEmail, customerMessage}:{customerName:string, customerEmail:string, customerMessage:string}) {
-  event.preventDefault();
-  //TODO: Validate values
+export default async function submitCommentForm(
+  setSubmitState: Dispatch<SetStateAction<number>>,
+  {
+    customerName,
+    customerEmail,
+    customerMessage,
+  }: { customerName: string; customerEmail: string; customerMessage: string }
+) {
   try {
     let res = await fetchTimeout("http://sodereresorthotelau.com/api/qa", {
       method: "POST",

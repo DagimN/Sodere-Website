@@ -1,18 +1,34 @@
 import React, { useState } from "react";
-import { submitBookingForm } from "../../utils/submitBookingForm";
+import  submitBookingForm  from "../../utils/submitBookingForm";
+import validateForm from "../../utils/validateForm";
 
 //Icons
 import { TiTick } from "react-icons/ti";
 import { PuffLoader } from "react-spinners";
 import { VscError } from "react-icons/vsc";
 
+
 const Booking = () => {
   let [customerName, setCustomerName] = useState("");
   let [customerEmail, setCustomerEmail] = useState("");
   let [customerPhone, setCustomerPhone] = useState("");
+  let [arrivalDate, setArrivalDate] = useState(
+    `${new Date().getFullYear().toString()}-${
+      new Date().getMonth() / 10 > 1
+        ? new Date().getMonth() + 1
+        : "0" + (new Date().getMonth() + 1)
+    }-${new Date().getDate().toString()}`
+  );
+  let [leavingDate, setLeavingDate] = useState("");
   let [customerType, setCustomerType] = useState("");
   let [customerRooms, setCustomerRooms] = useState("");
   let [customerOther, setCustomerOther] = useState("");
+  let [errors, setErrors] = useState({
+    nameError: "",
+    emailError: "",
+    phoneError: "",
+    leavingDateError: ""
+  });
   let [submitState, setSubmitState] = useState(0);
   let innerSubmitButtonComponent;
 
@@ -38,7 +54,7 @@ const Booking = () => {
 
   let telephoneInput = (
     <>
-      <h2 className="text-sm my-2">Telephone</h2>
+      <h2 className="text-md my-2">Telephone</h2>
       <input
         type="text"
         placeholder="Phone Number"
@@ -48,6 +64,7 @@ const Booking = () => {
           setCustomerPhone(e.target.value);
         }}
       />
+      <h2 className="text-[#de4034] text-sm">{errors.phoneError}</h2>
     </>
   );
 
@@ -55,7 +72,7 @@ const Booking = () => {
     <>
       <div className="mt-3 mr-5 ml-6">
         <label htmlFor="other">
-          <h2 className="text-sm my-2">Additional Requirements</h2>
+          <h2 className="text-md my-2">Additional Requirements</h2>
           <textarea
             name="other"
             cols={windowInnerWidth >= 405 ? 45 : 30}
@@ -88,21 +105,41 @@ const Booking = () => {
     <section className="w-full bg-[#52BBCE]">
       <h1 className="text-4xl flex justify-center pt-3">BOOK NOW</h1>
       <form
-        onSubmit={(e) =>
-          submitBookingForm(e, setSubmitState, {
+        onSubmit={(e) => {
+          let errorsFound = validateForm({
             customerName,
             customerEmail,
             customerPhone,
-            customerType,
-            customerRooms,
-            customerOther,
-          })
-        }
+            arrivalDate,
+            leavingDate,
+          });
+
+          e.preventDefault();
+          setErrors(errorsFound);
+
+          if (
+            errorsFound.emailError === "" &&
+            errorsFound.phoneError === "" &&
+            errorsFound.nameError === "" &&
+            errorsFound.leavingDateError === ""
+          )
+            submitBookingForm(setSubmitState, {
+              customerName,
+              customerEmail,
+              customerPhone,
+              arrivalDate,
+              leavingDate,
+              customerType,
+              customerRooms,
+              customerOther,
+            });
+          else setSubmitState(3);
+        }}
       >
         <div className="md:flex md:justify-between grid justify-center">
           <div className="ml-2 sm:ml-5 mt-3 lg:w-1/3 w-[95%]">
             <label htmlFor="name">
-              <h2 className="text-sm my-2">Full Name</h2>
+              <h2 className="text-md my-2">Full Name</h2>
               <input
                 type="text"
                 placeholder="Full Name"
@@ -112,10 +149,11 @@ const Booking = () => {
                   setCustomerName(e.target.value);
                 }}
               />
+              <h2 className="text-[#de4034] text-sm">{errors.nameError}</h2>
             </label>
 
             <label htmlFor="email">
-              <h2 className="text-sm my-2">Email</h2>
+              <h2 className="text-md my-2">Email</h2>
               <input
                 type="text"
                 placeholder="Email"
@@ -125,6 +163,7 @@ const Booking = () => {
                   setCustomerEmail(e.target.value);
                 }}
               />
+              <h2 className="text-[#de4034] text-sm">{errors.emailError}</h2>
             </label>
 
             <label htmlFor="phone" className="md:hidden lg:inline">
@@ -143,7 +182,7 @@ const Booking = () => {
                 <select
                   name="type"
                   className="rounded-md p-1"
-                  defaultValue='Standard'
+                  defaultValue="Standard"
                   onChange={(e) => {
                     setCustomerType(e.target.value);
                   }}
@@ -184,6 +223,7 @@ const Booking = () => {
             <input
               type="date"
               name="startdate"
+              onChange={(e) => setArrivalDate(e.target.value)}
               defaultValue={`${new Date().getFullYear().toString()}-${
                 new Date().getMonth() / 10 > 1
                   ? new Date().getMonth() + 1
@@ -203,6 +243,7 @@ const Booking = () => {
             <input
               type="date"
               name="enddate"
+              onChange={(e) => setLeavingDate(e.target.value)}
               min={`${new Date().getFullYear().toString()}-${
                 new Date().getMonth() / 10 > 1
                   ? new Date().getMonth() + 1
@@ -211,6 +252,9 @@ const Booking = () => {
               id=""
               className="rounded-md p-2"
             />
+            <h2 className="text-[#de4034] text-sm">
+              {errors.leavingDateError}
+            </h2>
           </label>
         </div>
 

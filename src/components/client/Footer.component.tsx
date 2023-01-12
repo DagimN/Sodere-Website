@@ -1,12 +1,11 @@
 import React, { useState } from "react";
-import { submitCommentForm } from "../../utils/submitCommentForm";
+import submitCommentForm from "../../utils/submitCommentForm";
 
 //Images
 import logo from "../../images/Logo2.png";
 
 //Icons
 import { FaBullhorn } from "react-icons/fa";
-//import {IoIosBookmarks} from "react-icons/io";
 import { TiTick } from "react-icons/ti";
 import { PuffLoader } from "react-spinners";
 import { VscError } from "react-icons/vsc";
@@ -18,6 +17,7 @@ const Footer = () => {
   let [customerEmail, setCustomerEmail] = useState<string>("");
   let [customerMessage, setCustomerMessage] = useState<string>("");
   let [submitState, setSubmitState] = useState(0);
+  let [emailError, setEmailError] = useState("");
 
   let innerSubmitButtonComponent;
 
@@ -133,13 +133,22 @@ const Footer = () => {
           onInvalid={() => {
             setSubmitState(0);
           }}
-          onSubmit={(e) =>
-            submitCommentForm(e, setSubmitState, {
-              customerName,
-              customerEmail,
-              customerMessage,
-            })
-          }
+          onSubmit={(e) => {
+            e.preventDefault();
+            const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]{2,}$/i;
+
+            if (!emailRegex.test(customerEmail)) {
+              setEmailError("This is not a valid email format!");
+              setSubmitState(3);
+            } else {
+              setEmailError("");
+              submitCommentForm(setSubmitState, {
+                customerName,
+                customerEmail,
+                customerMessage,
+              });
+            }
+          }}
           className="grid w-[95%]"
         >
           <input
@@ -162,6 +171,7 @@ const Footer = () => {
               setCustomerEmail(e.target.value);
             }}
           />
+          <h2 className="text-[#de4034] text-sm mx-5">{emailError}</h2>
           <textarea
             name="message"
             cols={windowInnerWidth >= 405 ? 45 : 30}

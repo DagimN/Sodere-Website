@@ -38,14 +38,14 @@ module.exports = async (app) => {
   })
 
   app.post("/api/book/", async (req, res) => {
-    let { name, email, phone, type, rooms, other } = req.body;
-    let insertQuery = "INSERT INTO booking(name, phone, email, room_type, num_room, additional) " + 
-                    "VALUES (?, ?, ?, ?, ?, ?)";
+    let { name, email, phone, type, arrival, departure, rooms, other } = req.body;
+    let insertQuery = "INSERT INTO booking(name, phone, email, arrival, departure, room_type, num_room, additional) " + 
+                    "VALUES (?, ?, ?, ?, ?, ?, ?, ?)";
 
     try {
       new Promise(async (resolve, reject) => {
         await db.beginTransaction();
-        await db.query(insertQuery, [name, encrypt(phone), encrypt(email), type, rooms, other]);
+        await db.query(insertQuery, [name, encrypt(phone), encrypt(email), arrival, departure, type, rooms, other]);
 
         resolve()
       })

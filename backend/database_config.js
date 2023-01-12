@@ -13,6 +13,8 @@ const createBookingQuery =
   "name varchar(200) NOT NULL, " +
   "phone varchar(1000) NOT NULL, " +
   "email varchar(500) NOT NULL, " +
+  "arrival varchar(200) NOT NULL, " +
+  "departure varchar(200) NOT NULL, " +
   "room_type varchar(500) NOT NULL, " +
   "num_room int(11) NOT NULL, " + 
   "additional text NULL);";
