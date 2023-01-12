@@ -24,8 +24,7 @@ export default async function submitBookingForm(
   }
 ) {
   try {
-
-    let res = await fetchTimeout("http://sodereresorthotelau.com/api/book", {
+    let res = await fetchTimeout("api/book", {
       method: "POST",
       mode: "cors",
       body: JSON.stringify({
@@ -41,7 +40,7 @@ export default async function submitBookingForm(
       headers: {
         Accept: "*/*",
         "Content-Type": "application/json",
-        Origin: "http://sodereresorthotelau.com",
+        Origin: "sodereresorthotelau.com",
       },
     });
     

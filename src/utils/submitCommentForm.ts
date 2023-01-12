@@ -10,7 +10,7 @@ export default async function submitCommentForm(
   }: { customerName: string; customerEmail: string; customerMessage: string }
 ) {
   try {
-    let res = await fetchTimeout("http://sodereresorthotelau.com/api/qa", {
+    let res = await fetchTimeout("api/qa", {
       method: "POST",
       mode: "cors",
       body: JSON.stringify({
@@ -21,7 +21,7 @@ export default async function submitCommentForm(
       headers: {
         Accept: "*/*",
         "Content-Type": "application/json",
-        Origin: "http://sodereresorthotelau.com",
+        Origin: "sodereresorthotelau.com",
       },
     });
 

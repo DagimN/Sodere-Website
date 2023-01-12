@@ -1,7 +1,7 @@
 const getReviews = async () => {
     try{
         let response = await fetch(
-          "http://sodereresorthotelau.com/api/reviews",
+          "api/reviews",
           { method: "GET" }
         );
         return await response.json();

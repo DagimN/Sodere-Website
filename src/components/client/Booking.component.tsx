@@ -20,8 +20,8 @@ const Booking = () => {
     }-${new Date().getDate().toString()}`
   );
   let [leavingDate, setLeavingDate] = useState("");
-  let [customerType, setCustomerType] = useState("");
-  let [customerRooms, setCustomerRooms] = useState("");
+  let [customerType, setCustomerType] = useState("Standard");
+  let [customerRooms, setCustomerRooms] = useState("1");
   let [customerOther, setCustomerOther] = useState("");
   let [errors, setErrors] = useState({
     nameError: "",
